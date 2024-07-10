@@ -5,26 +5,20 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        // Add custom colors here
-        primary: '#3490dc',
-        secondary: '#ffed4a',
-        // Add more colors as needed
+      colors:{
+        primary: '#150AA1',
+        ashDark: "#585858",
+        ashLight: "#E4E4E4",
+        secondary: "#5858FA"
+
       },
-      fontFamily: {
-        // Add custom font families here
-        sans: ['Roboto', 'Helvetica', 'Arial', 'sans-serif'],
-        serif: ['Merriweather', 'Georgia', 'serif'],
-        // Add more font families as needed
-      },
-      screens: {
-        // Add custom screen sizes here
-        'sm': '640px',    // Small screens
-        'md': '768px',    // Medium screens
-        'lg': '1024px',   // Large screens
-        'xl': '1280px',   // Extra large screens
-        // Add more screen sizes as needed
-      },
+    height:{
+      full:"100%",
+      half :"50%",
+      qua:"25%"
+       }  
+      
+    
     },
   },
   plugins: [],

@@ -1,10 +1,13 @@
-import React from 'react';
-import './App.css';
-import Button from './Component/button';
 
+import "./App.css";
+import AppRoute from './Route.js';
 function App() {
+  
+
   return (
-    <div>
+    <div className="app">
+    
+      <AppRoute/>
       
     </div>
   
