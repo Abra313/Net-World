@@ -1,0 +1,47 @@
+*{
+  list-style: none;
+}
+.app {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  
+  font-style: normal;
+}
+.font-regular{
+  font-weight: 600;
+}
+.font-light{
+  font-weight: lighter;
+}
+.font-bold{
+  font-weight: bold;
+}
+.font-xs{
+  font-size:0.5rem;
+
+}
+.font-sm{
+  font-size:1rem;
+
+}
+.font-l{
+  font-size: 2rem;
+}
+
+
+/* Light Mode */
+.app-light {
+  background-color: #ffffff;
+  color: #000000;
+ 
+}
+
+/* Dark Mode */
+.app-dark {
+  background-color: #000000;
+  color: #ffffff;
+  
+}
+
+
+
