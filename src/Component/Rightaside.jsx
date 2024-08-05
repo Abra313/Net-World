@@ -10,7 +10,7 @@ const Rightaside = () => {
             <div className="flex border-[1px] h-[51px] w-[302] rounded-[4px] mt-[30px] items-center p-[10px] space-x-[4px] ">
             <CiSearch /><input type="text" placeholder="Search"  className=" outline-none border-0"/>
             </div>
-           <div className="mt-[10%] overflow-y-auto h-[50vh]">
+           <div className="mt-[10%] overflow-y-auto  h-[50vh]">
            <div className="flex justify-between mt-[30px] mr-[1.6%]">
                 
                 <h2 className="font-bold text-ashDark">Suggestions</h2>

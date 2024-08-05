@@ -1,9 +1,81 @@
+import { FaPlus, FaArrowLeft } from 'react-icons/fa';
+import { BsListNested } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 
-const List =() => {
+const List = () => {
+    const navigate = useNavigate(); // Initialize useNavigate
+
+    const handleBackClick = () => {
+        navigate(-1); // Navigate to the previous page
+    };
+
     return (
         <div className="border-[1px] h-[100vh] mt-[5px]">
-            <h1>this is my list page</h1>
+            <div className="mt-[10px] h-[100vh] m-[10px]">
+                <div className="flex justify-between items-center">
+                        <FaArrowLeft
+                            className="text-primary font-bold text-[1.5rem] ml-[10px] cursor-pointer"
+                            onClick={handleBackClick}
+                        />
+                    <div className="flex items-center">
+                        
+                        <h2 className='text-primary font-bold mt-[2%] text-[1.5rem] ml-[10px] flex items-center gap-[10px]'>
+                            Lists
+                        </h2>
+                    </div>
+                    <FaPlus className="mr-[10px]" />
+                </div>
+                <hr className="mt-[2%]" />
+                <div className="flex justify-between items-center mt-[2%]">
+                    <p className="text-primary">Custom Order</p>
+                    <BsListNested />
+                </div>
+                <hr className="mt-[1%]" />
+
+                <div className="mt-[1%]">
+                    <p className="text-primary">Following</p>
+                    <small>Empty</small>
+                </div>
+                <hr className="mt-[1%]" />
+
+                <div className="mt-[1%]">
+                    <p className="text-primary">Followers</p>
+                    <small>Empty</small>
+                </div>
+                <hr className="mt-[1%]" />
+
+                <div className="mt-[1%]">
+                    <p className="text-primary">Fans</p>
+                    <small>Empty</small>
+                </div>
+                <hr className="mt-[1%]" />
+
+                <div className="mt-[1%]">
+                    <p className="text-primary">Likes</p>
+                    <small>Empty</small>
+                </div>
+                <hr className="mt-[1%]" />
+
+                <div className="mt-[1%]">
+                    <p className="text-primary">Close Customer</p>
+                    <small>Empty</small>
+                </div>
+                <hr className="mt-[1%]" />
+
+                <div className="mt-[1%]">
+                    <p className="text-primary">Restricted</p>
+                    <small>Empty</small>
+                </div>
+                <hr className="mt-[1%]" />
+
+                <div className="mt-[1%]">
+                    <p className="text-primary">Blocked</p>
+                    <small>Empty</small>
+                </div>
+                <hr className="mt-[1%]" />
+            </div>
         </div>
-    )
-}
-export default List
+    );
+};
+
+export default List;

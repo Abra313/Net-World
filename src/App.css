@@ -29,19 +29,24 @@
 }
 
 
-/* Light Mode */
-.app-light {
-  background-color: #ffffff;
-  color: #000000;
- 
+
+body {
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* Dark Mode */
-.app-dark {
-  background-color: #000000;
-  color: #ffffff;
-  
+body.light-mode {
+  background-color: #fff;
+  color: #000000f5;
 }
+
+body.dark-mode {
+  background-color: #000000f5;
+  color: #fff;
+}
+
+
+
+
 
 
 

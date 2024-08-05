@@ -9,6 +9,8 @@ import AddCard from "./AddCard";
 import Profile from "./Profile";
 import More from "./More";
 
+
+
 const MainRoute = () => {
     return ( 
         <div>
@@ -22,9 +24,9 @@ const MainRoute = () => {
                 <Route path="/add" element={<AddCard/>}/>
                 <Route path="/profile" element={<Profile/>}/>
                 <Route path="/more" element={<More/>}/>
-
                 
             </Routes>
+            
            
         </div> 
      );

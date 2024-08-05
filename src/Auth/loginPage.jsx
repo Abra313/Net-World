@@ -38,7 +38,7 @@ const Login = () => {
 
     return (
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-evenly m-auto mt-16 md:mt-0">
-            <div className="md:w-1/2">
+            <div className="md:w-1/3">
                 <img src={netWorld} alt="net-world" className="w-full" />
             </div>
 

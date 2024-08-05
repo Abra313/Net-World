@@ -11,7 +11,7 @@ function UserPage() {
   return (
     <div className="app">
       <Header/>
-      <div className="flex justify-between w-[100%] ">
+      <div className="flex justify-between ">
       <Aside/>
       <MainPage/>
       <Rightaside/>  

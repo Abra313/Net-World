@@ -14,9 +14,9 @@ const SignUp = () => {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+    const [passwordError, setPasswordError] = useState('');
 
     const handleSignup = async (e) => {
-        alert("Sign Up successfull")
         e.preventDefault();
 
         // Simple form validation
@@ -24,6 +24,16 @@ const SignUp = () => {
             setError('Please fill in all fields.');
             return;
         }
+
+        // Validate password
+        const passwordValid = validatePassword(password);
+        if (!passwordValid) {
+            setPasswordError('Password must be at least 8 characters  long and include an uppercase letter, a lowercase letter, and a punctuation mark.');
+            return;
+        }
+
+        setPasswordError('');
+        setError('');
 
         // Set loading state to true
         setLoading(true);
@@ -49,14 +59,25 @@ const SignUp = () => {
         // Navigate to login page when "Login" text is clicked
         navigate('/login');
     };
+
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
 
+    const validatePassword = (password) => {
+        // Regex to check for the password criteria
+        const hasUpperCase = /[A-Z]/.test(password);
+        const hasLowerCase = /[a-z]/.test(password);
+        const hasPunctuation = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+        const isLongEnough = password.length >= 8;
+
+        return hasUpperCase && hasLowerCase && hasPunctuation && isLongEnough;
+    };
+
     return (
-        <div className="flex flex-col md:flex-row items-center justify-center md:justify-evenly m-auto mt-16 md:mt-0">
-            <div className="md:w-1/2">
-                <img src={netWorld} alt="net-world" className="w-full" />
+        <div className="flex mt-[10%] flex-col md:flex-row items-center justify-center md:justify-evenly m-auto mt-16 md:mt-0">
+            <div className="md:w-1/3">
+                <img src={netWorld} alt="net-world" className="w-full " />
             </div>
 
             <div className="wrapper mt-8 md:mt-0">
@@ -89,7 +110,6 @@ const SignUp = () => {
                             />
                         </div>
 
-                        
                         <div className="flex items-center bg-ashLight rounded-lg">
                             <RiLockPasswordFill className="w-6 h-6 ml-3" />
                             <input
@@ -107,7 +127,10 @@ const SignUp = () => {
                             >
                                 {showPassword ? 'Hide' : 'Show'}
                             </button>
-                        </div>                    </div>
+                        </div>
+                        
+                        {passwordError && <p className="text-red-500 mt-2">{passwordError}</p>}
+                    </div>
 
                     {error && <p className="text-red-500 mt-2">{error}</p>}
 
@@ -123,11 +146,10 @@ const SignUp = () => {
                             type="submit"
                             onClick={handleSignup}
                             loading={loading}
-                            children="Sign Up"
                             className="rounded-lg w-36 h-12"
-                        />
-                            
-                        
+                        >
+                            Sign Up
+                        </Button>
                     </div>
                 </form>
             </div>

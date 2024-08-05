@@ -9,12 +9,18 @@ import { IoListSharp } from 'react-icons/io5';
 import { MdGroups2 } from 'react-icons/md';
 import { MdAddCard } from 'react-icons/md';
 import { ImProfile } from 'react-icons/im';
-import { CiCircleMore } from 'react-icons/ci';
+import ThemeSwitcher from '../Component/ThemeMode';
 
 const Aside = () => {
   const handleClick = () => {
-    alert('Button clicked!');
+   
   };
+  
+  const handleThemeChange = (isDarkMode) => {
+    console.log(`Theme changed: ${isDarkMode ? 'Dark Mode' : 'Light Mode'}`);
+    // You can add additional logic here if needed
+  };
+
 
   return (
     <>
@@ -63,11 +69,20 @@ const Aside = () => {
           </div>
 
           <div className="flex justify-center items-center space-x-3">
-            <CiCircleMore />
-            <Link to="/user/more">More</Link>
+            
+          <div className="App">
+              <header className="App-header">
+                
+                <ThemeSwitcher onThemeChange={handleThemeChange} />
+              </header>
+          </div>
           </div>
 
-          <Button onClick={handleClick}>+ New Post</Button>
+          <Button onClick={handleClick}
+          className="bg-primary"
+          children=' + New Post'
+          />
+            
         </div>
       </div>
     </>
