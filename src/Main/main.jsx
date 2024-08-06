@@ -3,7 +3,7 @@ import MainRoute from "./Route"
 
 const MainPage = () =>{
     return(
-        <div className="border-l-[2px] border-r-[2px] mt-[4.4%] ml-[18%] w-[64%]">
+        <div className="border-l-[2px] border-r-[2px] mt-[4.4%] ml-[18%] w-[64%] max-sm:w-[90%] max-sm:ml-[15%] max-sm:border-[0] overflow-hidden ">
       
 
 

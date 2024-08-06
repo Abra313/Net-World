@@ -21,22 +21,22 @@ const Message = () =>{
     };
 
     return(
-        <div className="border-[1px] h-[100vh] mt-[5px]">
+        <div className="border-[1px] h-[100vh] mt-[5px] max-sm:mt-[10%] max-sm:border-[0] max-sm:overflow-hidden">
             <div className="mt-[10px] m-[10px]">
                 <div className="wrapper">
                     <div className="flex  gap-[45%] items-center">
                             <FaArrowLeft 
-                                className="text-primary font-bold mt-[1%] text-[1.5rem]  cursor-pointer" 
+                                className="text-primary font-bold mt-[1%] text-[1.5rem]  cursor-pointer max-sm:hidden " 
                                 onClick={handleBackClick} 
                             />
-                            <h2 className='text-primary font-bold mt-[1%] text-[1.5rem] ml-[10px]'>
+                            <h2 className='text-primary font-bold mt-[1%] text-[1.5rem] ml-[10px] max-sm:mt-[10%]'>
                                 Messages
                             </h2>
                             
                     </div>
 
-                    <div className=""><h1 className="text-[1rem] font-bold text-primary">Chats</h1></div>
-                    <div className=' ml-[2.5%] mt-[2%] overflow-x-auto border[2px] w-[95%] h-[10vh] flex justify-center items-center gap-[10px]'>
+                    <div className=""><h1 className="text-[1rem] font-bold text-primary max-sm:hidden">Chats</h1></div>
+                    <div className=' ml-[2.5%] mt-[2%] overflow-x-auto border[2px] w-[95%] h-[10vh] flex justify-center items-center gap-[10px] max-sm:mt-[10%]'>
                        
                         <img src={post2} alt=""  className='w-[70px] h-[50px] rounded-[50%]'/>
                         <img src={post3} alt="" className='w-[70px] h-[50px] rounded-[50%]' />

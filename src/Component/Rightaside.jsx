@@ -6,7 +6,7 @@ const Rightaside = () => {
     
 
     return ( 
-        <div className="w-[18%] h-[100vh] border-l-[0]  flex flex-col p-[10px] h-[50vh] mt-[3.5%] fixed ml-[82%] ">
+        <div className="w-[18%] h-[100vh] border-l-[0]  flex flex-col p-[10px] h-[50vh] mt-[3.5%] fixed ml-[82%] max-sm:hidden ">
             <div className="flex border-[1px] h-[51px] w-[302] rounded-[4px] mt-[30px] items-center p-[10px] space-x-[4px] ">
             <CiSearch /><input type="text" placeholder="Search"  className=" outline-none border-0"/>
             </div>

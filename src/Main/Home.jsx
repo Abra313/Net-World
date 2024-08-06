@@ -63,7 +63,7 @@ const MainPage = () => {
     const handleCommentSubmit = () => {
         if (newComment.trim() !== '') {
             setComments([...comments, { text: newComment }]);
-            setNewComment('good');
+            setNewComment('');
             setCommentCount(commentCount + 1); // Update the comment count
         }
     };

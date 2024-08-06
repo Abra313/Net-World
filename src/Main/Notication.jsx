@@ -31,11 +31,11 @@ const Notification = () => {
 
     return (
         <div>
-            <div className="m-[10px]">
+            <div className="m-[10px] max-sm:mt-[20%] max-sm:border-[0] max-sm:overflow-none">
                 <div className="wrapper">
                     <div className="flex justify-between items-center">
                         <FaArrowLeft 
-                            className="text-primary font-bold mt-[1%] text-[1.5rem] ml-[10px] cursor-pointer" 
+                            className="text-primary font-bold mt-[1%] text-[1.5rem] ml-[10px] cursor-pointer max-sm:hidden" 
                             onClick={handleBackClick} 
                         />
                         <h2 className='text-primary font-bold mt-[1%] text-[1.5rem] ml-[10px]'>
@@ -47,7 +47,7 @@ const Notification = () => {
                         />
                     </div>
 
-                    <div className="flex gap-[5%] mt-[2%]">
+                    <div className="flex gap-[5%] mt-[2%] max-sm:overflow-x-auto">
                         <Button 
                             className={`rounded-[%] ${activeButton === 'All' ? 'bg-gray-400 text-white' : 'bg-primary text-black'}`}
                             onClick={() => handleButtonClick('All')}
@@ -73,10 +73,10 @@ const Notification = () => {
                             Comments
                         </Button>
                     </div>
-                    <hr className="mt-[3%]" />
+                    <hr className="mt-[3%] max-sm:hidden" />
 
                     {/* Notification Items */}
-                    <div className="mt-[2%] flex justify-between items-center text-ashDark">
+                    <div className="mt-[2%] flex justify-between items-center text-ashDark max-sm:mt-[5%] max-sm:overflow-x-auto">
                         <div className="flex items-center gap-[5px]">
                             <img src={Kelly} alt="kelly" className="rounded-[50%] w-[40px] h-[40px]" />
                             <div>
@@ -86,7 +86,7 @@ const Notification = () => {
                         </div>
                         <p>1 min ago</p>
                     </div>
-                    <hr className="mt-[3%]" />
+                    <hr className="mt-[3%] max-sm:hidden" />
 
                     <div className="mt-[2%] flex justify-between items-center text-ashDark">
                         <div className="flex items-center gap-[5px]">
@@ -98,7 +98,7 @@ const Notification = () => {
                         </div>
                         <p>15 mins ago</p>
                     </div>
-                    <hr className="mt-[3%]" />
+                    <hr className="mt-[3%] max-sm:hidden" />
 
                     <div className="mt-[2%] flex justify-between items-center text-ashDark">
                         <div className="flex items-center gap-[5px]">
@@ -110,19 +110,19 @@ const Notification = () => {
                         </div>
                         <p>20 mins ago</p>
                     </div>
-                    <hr className="mt-[3%]" />
+                    <hr className="mt-[3%] max-sm:hidden" />
 
                     <div className="mt-[2%] flex justify-between items-center text-ashDark">
                         <div className="flex items-center gap-[5px]">
                             <img src={post3} alt="post" className="rounded-[50%] w-[40px] h-[40px]" />
                             <div>
                                 <h2 className="text-secondary font-bold">Dorothy</h2>
-                                <p className="text-ashDark">Mentioned you in a comment</p>
+                                <p className="text-ashDark">Mention you in a post</p>
                             </div>
                         </div>
                         <p>30 mins ago</p>
                     </div>
-                    <hr className="mt-[3%]" />
+                    <hr className="mt-[3%] max-sm:hidden" />
 
                     <div className="mt-[2%] flex justify-between items-center text-ashDark">
                         <div className="flex items-center gap-[5px]">
@@ -134,19 +134,19 @@ const Notification = () => {
                         </div>
                         <p>40 mins ago</p>
                     </div>
-                    <hr className="mt-[3%]" />
+                    <hr className="mt-[3%] max-sm:hidden" />
 
                     <div className="mt-[2%] flex justify-between items-center text-ashDark">
                         <div className="flex items-center gap-[5px]">
                             <img src={Pual} alt="paul" className="rounded-[50%] w-[40px] h-[40px]" />
                             <div>
                                 <h2 className="text-secondary font-bold">Paul Chisom</h2>
-                                <p className="text-ashDark">Accepted your friend request</p>
+                                <p className="text-ashDark">Accept your request</p>
                             </div>
                         </div>
                         <p>59 mins ago</p>
                     </div>
-                    <hr className="mt-[3%]" />
+                    <hr className="mt-[3%] max-sm:hidden" />
                 </div>
             </div>
         </div>

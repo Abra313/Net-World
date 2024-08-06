@@ -11,11 +11,11 @@ const Bookmark = () => {
     };
 
     return (
-        <div className="border-[1px] h-[100vh] mt-[5px]">
-            <div className="mt-[10px] h-[100vh] m-[10px]">
+        <div className="border-[1px] h-[100vh] mt-[5px] max-sm:border-[0]">
+            <div className="mt-[10px] h-[100vh] m-[10px] max-sm:mt-[20%]">
                 <div className="flex gap-[40%] items-center">
                          <FaArrowLeft 
-                            className="text-ashDark cursor-pointer text-primary font-bold mt-[1%] text-[1.5rem] ml-[10px] " 
+                            className="text-ashDark cursor-pointer text-primary font-bold mt-[1%] text-[1.5rem] ml-[10px] max-sm:hidden " 
                             onClick={handleBackClick} 
                         />
                     <h2 className='text-primary font-bold mt-[2%] text-[1.5rem] ml-[10px] flex items-center gap-[10px]'>
@@ -23,44 +23,44 @@ const Bookmark = () => {
                         Bookmarks
                     </h2>
                 </div>
-                <hr className="mt-[2%]" />
+                <hr className="mt-[2%] max-sm:hidden" />
                 <div className="flex justify-between items-center mt-[2%]">
                     <p className="text-primary">All Bookmarks</p>
                     <BsListNested />
                 </div>
-                <hr className="mt-[1%]" />
+                <hr className="mt-[1%] max-sm:hidden" />
 
-                <div className="mt-[1%]">
+                <div className="mt-[1%] max-sm:flex justify-between items-center mt-[5%]">
                     <p className="text-primary">Photos</p>
                     <small>566</small>
                 </div>
 
-                <div className="mt-[1%]">
+                <div className="mt-[1%] max-sm:flex justify-between items-center">
                     <p className="text-primary">Videos</p>
                     <small>130</small>
                 </div>
 
-                <div className="mt-[1%]">
+                <div className="mt-[1%] max-sm:flex justify-between items-center">
                     <p className="text-primary">Audio</p>
                     <small>100</small>
                 </div>
 
-                <div className="mt-[1%]">
+                <div className="mt-[1%] max-sm:flex justify-between items-center">
                     <p className="text-primary">Posts</p>
                     <small>20</small>
                 </div>
 
-                <div className="mt-[1%]">
+                <div className="mt-[1%] max-sm:flex justify-between items-center">
                     <p className="text-primary">Messages</p>
                     <small>400</small>
                 </div>
 
-                <div className="mt-[1%]">
+                <div className="mt-[1%] max-sm:flex justify-between items-center">
                     <p className="text-primary">Locked</p>
                     <small>123</small>
                 </div>
 
-                <div className="mt-[1%]">
+                <div className="mt-[1%] max-sm:flex justify-between items-center">
                     <p className="text-primary">Blocked</p>
                     <small>Empty</small>
                 </div>

@@ -15,9 +15,9 @@ const ThemeSwitcher = ({ onThemeChange }) => {
 
   return (
     <button  className="flex gap-[5px] items-center"onClick={() => setIsDarkMode(!isDarkMode)} style={{ fontSize: '24px', background: 'none', border: 'none', cursor: 'pointer' }}>
-      {isDarkMode ? <IoMdSunny /> : <IoMdMoon />} 
-      <p className='text-[16px]'>Theme</p>
-      <span className='text-[16px]'>{isDarkMode ? 'Dark' : 'Light'}</span>
+      {isDarkMode ? <IoMdSunny className='w-[25px] h-[25px]' /> : <IoMdMoon className='w-[25px] h-[25px] ' />} 
+      <p className='text-[16px] max-sm:hidden'>Theme</p>
+      <span className='text-[16px]'>{isDarkMode ? '' : ''}</span>
     </button>
   );
 

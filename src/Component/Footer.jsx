@@ -2,7 +2,7 @@
 const Footer = () => {
     return ( 
         <div>
-            <footer className=" border-t-1 flex flex-col justify-center items-center space-y-10 min-h-[250px] X-20 border-t-[1px]" >
+            <footer className=" border-t-1 flex flex-col justify-center items-center space-y-10 min-h-[250px] X-20 border-t-[1px] max-sm:hidden" >
               
               <div className=" flex space-x-[30%] justify-center items-center font-s text-ashDark w-[80%] mt-[100px]">
                     <div className="flex justice-centre item-centre font-light">

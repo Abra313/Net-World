@@ -24,64 +24,66 @@ const Aside = () => {
 
   return (
     <>
-      <div className="w-[17.7%] h-[50vh] border-r-[0] flex justify-center mt-[6%] fixed">
-        <div className="flex justify-center flex-col items-start space-y-2 ">
-          <img src={pp} alt="pp" className="w-[40px] h-[40px] rounded-[50%]"/>
+      <div className="w-[17.7%] h-[50vh] border-r-[0] flex justify-center mt-[6%] fixed  max-sm:ml-[%] max-sm:mt-[37%] ">
+        <div className="flex justify-center flex-col items-start space-y-2 max-sm:gap-[10px] ">
+          <img src={pp} alt="pp" className="w-[40px] h-[40px] rounded-[50%] max-sm:ml-[-5px]"/>
 
-          <div className="flex justify-center items-center space-x-3">
-            <ImHome />
-            <Link to="/user">Home</Link>
-          </div>
-
-          <div className="flex justify-center items-center space-x-3">
-            <IoMdNotifications />
-            <Link to="/user/notification">Notification</Link>
-          </div>
-
-          <div className="flex justify-center items-center space-x-3">
-            <BiSolidMessageRoundedDetail />
-            <Link to="/user/message">Message</Link>
-          </div>
-
-          <div className="flex justify-center items-center space-x-3">
-            <BiSolidBookmarks />
-            <Link to="/user/bookmark">Bookmark</Link>
-          </div>
-
-          <div className="flex justify-center items-center space-x-3">
-            <IoListSharp />
-            <Link to="/user/list">Lists</Link>
-          </div>
-
-          <div className="flex justify-center items-center space-x-3">
-            <MdGroups2 />
-            <Link to="/user/group">Group</Link>
-          </div>
-
-          <div className="flex justify-center items-center space-x-3">
-            <MdAddCard />
-            <Link to="/user/add">Add Card</Link>
-          </div>
-
-          <div className="flex justify-center items-center space-x-3">
-            <ImProfile />
-            <Link to="/user/profile">Profile</Link>
-          </div>
-
-          <div className="flex justify-center items-center space-x-3">
-            
-          <div className="App">
-              <header className="App-header">
+          
+              <div className="flex justify-center items-center space-x-3">
                 
-                <ThemeSwitcher onThemeChange={handleThemeChange} />
-              </header>
-          </div>
-          </div>
+                <Link to="/user" className='flex justify-center items-center gap-[10px]'><ImHome  className='w-[25px] h-[25px] text-primary'/><p className='max-sm:hidden'>Home</p></Link>
+              </div>
 
-          <Button onClick={handleClick}
-          className="bg-primary"
-          children=' + New Post'
-          />
+              <div className="flex justify-center items-center space-x-3">
+                
+                <Link to="/user/notification" className='flex justify-center items-center gap-[10px]'><IoMdNotifications  className='w-[25px] h-[25px] text-primary'/> <p className='max-sm:hidden'>Notification</p></Link>
+              </div>
+
+              <div className="flex justify-center items-center space-x-3">
+                
+                <Link to="/user/message" className='flex justify-center items-center gap-[10px]'><BiSolidMessageRoundedDetail  className='w-[25px] h-[25px] text-primary' /> <p className='max-sm:hidden'>Message</p></Link>
+              </div>
+
+              <div className="flex justify-center items-center space-x-3">
+                
+                <Link to="/user/bookmark" className='flex justify-center items-center gap-[10px]'> <BiSolidBookmarks className='w-[25px] h-[25px] text-primary' /> <p className='max-sm:hidden'>Bookmark</p></Link>
+              </div>
+
+              <div className="flex justify-center items-center space-x-3">
+                
+                <Link to="/user/list" className='flex justify-center items-center gap-[10px]'><IoListSharp className='w-[25px] h-[25px] text-primary' /> <p className='max-sm:hidden'>Lists</p></Link>
+              </div>
+
+              <div className="flex justify-center items-center space-x-3">
+                
+                <Link to="/user/group" className='flex justify-center items-center gap-[10px]'> <MdGroups2  className='w-[25px] h-[25px] text-primary'/> <p className='max-sm:hidden'>Group</p></Link>
+              </div>
+
+              <div className="flex justify-center items-center space-x-3">
+              
+                <Link to="/user/add" className='flex justify-center items-center gap-[10px]' >  <MdAddCard   className='w-[25px] h-[25px] text-primary'/> <p className='max-sm:hidden' >Add Card</p></Link>
+              </div>
+
+              <div className="flex justify-center items-center space-x-3">
+                
+                <Link to="/user/profile" className='flex justify-center items-center gap-[10px]'> <ImProfile  className='w-[25px] h-[25px] text-primary'/> <p className='max-sm:hidden'>Profile</p></Link>
+              </div>
+
+              <div className="flex justify-center items-center space-x-3">
+                
+              <div className="App">
+                  <header className="App-header">
+                    
+                    <ThemeSwitcher onThemeChange={handleThemeChange} />
+                  </header>
+              </div>
+              </div>
+
+              <Button onClick={handleClick}
+              className="bg-primary max-sm:hidden"
+              children=' + New Post'
+              />
+          
             
         </div>
       </div>
