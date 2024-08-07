@@ -36,11 +36,11 @@ body {
 
 body.light-mode {
   background-color: #fff;
-  color: #000000f5;
+  color: #121627;
 }
 
 body.dark-mode {
-  background-color: #000000f5;
+  background-color: #191f36;
   color: #fff;
 }
 

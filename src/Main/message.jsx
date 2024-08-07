@@ -84,7 +84,7 @@ const Message = () =>{
                         <div className='flex justify-start gap-[10px]'>
                              <img src={post2} alt=""  className='w-[50px] h-[50px] rounded-[50%]'/>
                              <div>
-                                <h3 className='text-secondary font-bold'>Dorothy</h3>
+                                <h3 className='text-secondary font-bold'>Dorothy Omojisola Favour</h3>
                                 <p className="text-ashDark">Hi....how far are you coming to Babtech today</p>
                              </div>
                              

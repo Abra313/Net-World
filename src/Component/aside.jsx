@@ -31,42 +31,42 @@ const Aside = () => {
           
               <div className="flex justify-center items-center space-x-3">
                 
-                <Link to="/user" className='flex justify-center items-center gap-[10px]'><ImHome  className='w-[25px] h-[25px] text-primary'/><p className='max-sm:hidden'>Home</p></Link>
+                <Link to="/user" className='flex justify-center items-center gap-[10px]'><ImHome  className='w-[25px] h-[25px] text-blcak'/><p className='max-sm:hidden'>Home</p></Link>
               </div>
 
               <div className="flex justify-center items-center space-x-3">
                 
-                <Link to="/user/notification" className='flex justify-center items-center gap-[10px]'><IoMdNotifications  className='w-[25px] h-[25px] text-primary'/> <p className='max-sm:hidden'>Notification</p></Link>
+                <Link to="/user/notification" className='flex justify-center items-center gap-[10px]'><IoMdNotifications  className='w-[25px] h-[25px] outline-black'/> <p className='max-sm:hidden'>Notification</p></Link>
               </div>
 
               <div className="flex justify-center items-center space-x-3">
                 
-                <Link to="/user/message" className='flex justify-center items-center gap-[10px]'><BiSolidMessageRoundedDetail  className='w-[25px] h-[25px] text-primary' /> <p className='max-sm:hidden'>Message</p></Link>
+                <Link to="/user/message" className='flex justify-center items-center gap-[10px]'><BiSolidMessageRoundedDetail  className='w-[25px] h-[25px] outline-black' /> <p className='max-sm:hidden'>Message</p></Link>
               </div>
 
               <div className="flex justify-center items-center space-x-3">
                 
-                <Link to="/user/bookmark" className='flex justify-center items-center gap-[10px]'> <BiSolidBookmarks className='w-[25px] h-[25px] text-primary' /> <p className='max-sm:hidden'>Bookmark</p></Link>
+                <Link to="/user/bookmark" className='flex justify-center items-center gap-[10px]'> <BiSolidBookmarks className='w-[25px] h-[25px] outline-black' /> <p className='max-sm:hidden'>Bookmark</p></Link>
               </div>
 
               <div className="flex justify-center items-center space-x-3">
                 
-                <Link to="/user/list" className='flex justify-center items-center gap-[10px]'><IoListSharp className='w-[25px] h-[25px] text-primary' /> <p className='max-sm:hidden'>Lists</p></Link>
+                <Link to="/user/list" className='flex justify-center items-center gap-[10px]'><IoListSharp className='w-[25px] h-[25px] outline-black' /> <p className='max-sm:hidden'>Lists</p></Link>
               </div>
 
               <div className="flex justify-center items-center space-x-3">
                 
-                <Link to="/user/group" className='flex justify-center items-center gap-[10px]'> <MdGroups2  className='w-[25px] h-[25px] text-primary'/> <p className='max-sm:hidden'>Group</p></Link>
+                <Link to="/user/group" className='flex justify-center items-center gap-[10px]'> <MdGroups2  className='w-[25px] h-[25px] outline-black'/> <p className='max-sm:hidden'>Group</p></Link>
               </div>
 
               <div className="flex justify-center items-center space-x-3">
               
-                <Link to="/user/add" className='flex justify-center items-center gap-[10px]' >  <MdAddCard   className='w-[25px] h-[25px] text-primary'/> <p className='max-sm:hidden' >Add Card</p></Link>
+                <Link to="/user/add" className='flex justify-center items-center gap-[10px]' >  <MdAddCard   className='w-[25px] h-[25px] outline-black'/> <p className='max-sm:hidden' >Add Card</p></Link>
               </div>
 
               <div className="flex justify-center items-center space-x-3">
                 
-                <Link to="/user/profile" className='flex justify-center items-center gap-[10px]'> <ImProfile  className='w-[25px] h-[25px] text-primary'/> <p className='max-sm:hidden'>Profile</p></Link>
+                <Link to="/user/profile" className='flex justify-center items-center gap-[10px]'> <ImProfile  className='w-[25px] h-[25px] outline-black'/> <p className='max-sm:hidden'>Profile</p></Link>
               </div>
 
               <div className="flex justify-center items-center space-x-3">
