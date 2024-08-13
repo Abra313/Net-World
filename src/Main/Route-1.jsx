@@ -1,12 +1,12 @@
 import{Route} from "react-router-dom"
-import NotiSetting from "./notification-setting";
+// import NotiSetting from "./notification-setting";
 
 
 const Route1 = () => {
     return ( 
         <div>
-           
-                <Route path="/noti" element={<NotiSetting/>}/>
+{/*            
+                <Route path="/noti" element={<NotiSetting/>}/> */}
                 {/* <Route path="/notification" element={<Notification/>}/>
                 <Route path="/message" element={<Message/>}/>
                 <Route path="/bookmark" element={<Bookmark/>}/>

@@ -8,6 +8,7 @@ import Group from "./Group";
 import AddCard from "./AddCard";
 import Profile from "./Profile";
 import More from "./More";
+import NotiSetting from "./notification-setting";
 
 
 
@@ -24,6 +25,7 @@ const MainRoute = () => {
                 <Route path="/add" element={<AddCard/>}/>
                 <Route path="/profile" element={<Profile/>}/>
                 <Route path="/more" element={<More/>}/>
+                <Route path="/noti" element={<NotiSetting/>}/>
                 
             </Routes>
             

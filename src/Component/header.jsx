@@ -57,7 +57,7 @@ const Header = () => {
 
       {/* Mobile Search Bar */}
       <div
-        className={`fixed top-20 right-0 bg-secondary w-[83%] max-w-md p-4 border-t border-t-gray-600 transition-transform transform ${
+        className={`fixed top-20 right-0 bg-secondary w-[85%] max-w-md p-4 border-t border-t-gray-600 transition-transform transform ${
           isSearchVisible ? 'translate-x-0' : 'translate-x-full'
         }`}
       >

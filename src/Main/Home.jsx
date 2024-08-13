@@ -84,10 +84,10 @@ const MainPage = () => {
 
     return (
         <div className='m-[0]'>
-            <div className="m-[10px]">
+            <div className="m-[10px] max-sm:mt-[20%]">
                 <div className="flex items-center gap-[45%] mb-[10px]">
                     <FaArrowLeft 
-                        className="text-primary font-bold text-[1.5rem] ml-[10px] cursor-pointer" 
+                        className="text-primary font-bold text-[1.5rem] ml-[10px] cursor-pointer max-sm:hidden" 
                         onClick={handleBackClick} 
                     />
                     <h1 className='text-primary font-bold text-[1.5rem] ml-[10px]'>Home</h1>
@@ -96,14 +96,22 @@ const MainPage = () => {
                     {/* ... (existing code for displaying images) */}
                 </div>
             </div>
-            <div className="bg-ashLight border-[1px] m-[10px] h-[265px] rounded-[5px]">
-                <div className="bg-white h-[170px] rounded-[5px] m-[15px] border-[2px] flex flex-col gap-[70px] pl-[20px] pt-[20px]">
-                    <p className="text-[1.3rem] text-ashDark">Compose new post</p>
-                    <div className="flex gap-[30px]">
-                        {/* ... (existing icons) */}
+            <div className="bg-ashLight border-[1px] m-[10px] h-[265px] rounded-[5px] max-sm:h-[150px]">
+                <div className="bg-white h-[170px] rounded-[5px] m-[15px] border-[2px] flex flex-col gap-[70px] pl-[20px] pt-[20px] max-sm:h-[50px] ">
+                    <p className="text-[1.3rem] text-ashDark max-sm:mt-[-10px]">Compose new post</p>
+                    <div className="flex gap-[30px] max-sm:mt-[-70px] max-sm:gap-[20px] ml-[-15px]">
+                    
+                                <FaRegImage className="w-[30px] h-[30px] text-ashDark max-sm: w-[90px] h-[40px]" />
+                                <FaVideo className="w-[30px] h-[30px] text-ashDark max-sm: w-[90px] h-[40px] " />
+                                <MdSettingsVoice className="w-[30px] h-[30px] text-ashDark max-sm: w-[90px] h-[40px]" />
+                                <FaPoll className="w-[30px] h-[30px] text-ashDark max-sm: w-[90px] h-[40px]" />
+                                <GiSandsOfTime className="w-[30px] h-[30px] text-ashDark max-sm: w-[90px] h-[40px]" />
+                                <BsBroadcast className="w-[30px] h-[30px] text-ashDark max-sm: w-[90px] h-[40px]" />
+                                <MdGroup className="w-[30px] h-[30px] text-ashDark max-sm: w-[90px] h-[40px]" />
+                            
                     </div>
                 </div>
-                <div className="flex items-center gap-[30px] m-[20px] justify-end">
+                <div className="flex items-center gap-[30px] m-[20px] justify-end max-sm:mt-[35px] flex justify-between">
                     <h2 className="text-primary font-bold">Post Later</h2>
                     <Button
                         onClick={handleClick}
@@ -116,10 +124,10 @@ const MainPage = () => {
                 <p className="text-[1.2rem] text-ashDark">All</p>
                 <IoMdList className="w-[30px] h-[30px] text-ashDark" />
             </div>
-            <hr />
+            <hr className='max-sm:hidden' />
             <div>
                 {/* ... (existing code for post and images) */}
-                <div className="flex flex-col gap-[10px] border-[1px] rounded-[5px] p-[7px] mt-[25px] ml-[40px] mr-[30px]">
+                <div className="flex flex-col gap-[10px] border-[1px] rounded-[5px] p-[7px] mt-[25px] ml-[40px] mr-[30px] max-sm:border-[0]">
                     <div className="flex justify-between">
                         <div className="flex gap-[40px]">
                             <BiLike
@@ -134,7 +142,7 @@ const MainPage = () => {
                         </div>
                         <MdBookmarks className="w-[20px] h-[20px] text-ashDark" />
                     </div>
-                    <hr />
+                    <hr className='max-sm:hidden'/>
                     <p className="text-ashDark">{likeCount} likes this</p>
                 </div>
 
@@ -146,11 +154,14 @@ const MainPage = () => {
                         onChange={handleCommentChange}
                         placeholder="Add a comment..."
                     />
-                    <button
+                    <div className='flex justify-between'>
+                        <button
                         className="bg-primary text-white px-[10px] py-[5px] rounded"
                         onClick={handleCommentSubmit}
                         children="Submit"
                     />
+                    <p className="text-ashDark mt-[10px]">Total Comments: {commentCount}</p>
+                    </div>
                     <div className="mt-[10px]">
                         {comments.map((comment, index) => (
                             <div key={index} className="flex justify-between border-b py-[5px]">
@@ -163,7 +174,7 @@ const MainPage = () => {
                             </div>
                         ))}
                     </div>
-                    <p className="text-ashDark mt-[10px]">Total Comments: {commentCount}</p>
+                    
                 </div>
             </div>
         </div>

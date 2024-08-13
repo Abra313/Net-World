@@ -94,7 +94,7 @@ const Message = () =>{
                         <div className='flex justify-start gap-[10px]'>
                              <img src={post3} alt="" className='w-[50px] h-[50px] rounded-[50%]' />
                              <div>
-                                <h3 className='text-secondary font-bold'>Tracy Vicky</h3>
+                                <h3 className=' font-bold text-secondary'>Tracy Vicky</h3>
                                 <p className="text-ashDark">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, laboriosam.</p>
                              </div>
                              
@@ -105,7 +105,7 @@ const Message = () =>{
                         <div className='flex justify-start gap-[10px]'>
                               <img src={post4} alt=""  className='w-[50px] h-[50px] rounded-[50%]'/>
                              <div>
-                                <h3 className='text-secondary font-bold'>Bukunmi</h3>
+                                <h3 className=' text-secondary font-bold'>Bukunmi</h3>
                                 <p className="text-ashDark">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, laboriosam.</p>
                              </div>
                              

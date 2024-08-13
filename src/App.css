@@ -44,6 +44,30 @@ body.dark-mode {
   color: #fff;
 }
 
+body.dark-mode  h3,
+body.dark-mode  h2,
+body.dark-mode  p,
+body.dark-mode h1,
+body.dark-mode h4 {
+  color: #fff;
+
+}
+body.dark-mode  textarea{
+  color: black;
+}
+
+
+
+body.light-mode  h3
+body.light-mode  textarea{
+  color: #5858FA;
+
+}
+
+
+
+
+
 
 
 

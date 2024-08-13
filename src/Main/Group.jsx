@@ -44,11 +44,12 @@ const Group = () => {
 
                                 <div className=" w-[99%] flex flex-col gap-[20px] ml-[2%]">
                                     <div className="flex items-center gap-[400px]">
-                                        <div className='flex flex-col gap-[10px]'>
+                                    <div className='flex flex-col gap-[10px]'>
                                             <h1  className="text-primary font-bold max-sm:w-[500px]">Coocking Group</h1>
-                                            <div className=" flex items-center gap-[10px]"> 
+                                            
+                                        <div className=" flex items-center gap-[10px]"> 
                                             <HiUserGroup className="w-[30px] h-[30px] text-primary"/>
-                                            <div className="flex">
+                                            <div className="flex ">
                                                 <img src={post1} alt="" className="w-[30px] h-[30px] rounded-[50%] " />
                                                 <img src={post2} alt="" className="w-[30px] h-[30px] rounded-[50%] ml-[-10px] " />
                                                 <img src={post3} alt="" className="w-[30px] h-[30px] rounded-[50%] ml-[-10px] " />
@@ -67,7 +68,7 @@ const Group = () => {
                                         className="w-[140px] h-[50px] bg-primary"
                                         />
                                 </div>
-                                    <p className="w-[95%] max-sm:w-[70%] h-[50vh] border-[2px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, tenetur optio accusantium reiciendis maiores aut, impedit tempora repellendus est quidem reprehenderit, odit similique quos. Architecto porro quasi, asperiores vitae rerum ullam voluptate ipsum ratione? .</p>
+                                    <p className="w-[95%] max-sm:w-[70%] h-[50vh] border-[2px] max-sm:hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, tenetur optio accusantium reiciendis maiores aut, impedit tempora repellendus est quidem reprehenderit, odit similique quos. Architecto porro quasi, asperiores vitae rerum ullam voluptate ipsum ratione? .</p>
 
                             </div>
                                 
@@ -78,57 +79,20 @@ const Group = () => {
 
                          
 
-                    <div className="mt-[2%] flex border-[1px] p-[1%] bg-ashLight w-[98%] h-[180px] m-[10px] border-[2px] rounded-[6px]">
+                    
+                         <div className="mt-[2%] flex border-[1px] p-[1%] bg-ashLight w-[98%] h-[180px] m-[10px] border-[2px] rounded-[6px] max-sm:mt-[10%] max-sm:w-[95%] max-sm:h-[100px]">
                                 <div className="flex items-center gap-[5px]">
-                                    <img src={post2} alt="kelly" className="rounded-[50%] w-[100px] h-[100px] " />
-                                </div>
-
-                                <div className=" w-[99%] flex flex-col gap-[20px] ml-[2%] max-sm:w-full border-[2px]">
-                                    <div className="flex items-center gap-[400px]">
-                                        <div className='flex flex-col gap-[10px]'>
-                                            <h1  className="text-primary font-bold">Hack the box Group</h1>
-                                            <div className=" flex items-center gap-[10px]"> 
-                                            <HiUserGroup className="w-[30px] h-[30px] text-primary"/>
-                                            <div className="flex">
-                                                <img src={post1} alt="" className="w-[30px] h-[30px] rounded-[50%] " />
-                                                <img src={post2} alt="" className="w-[30px] h-[30px] rounded-[50%] ml-[-10px] " />
-                                                <img src={post3} alt="" className="w-[30px] h-[30px] rounded-[50%] ml-[-10px] " />
-                                                <img src={Kelly} alt="" className="w-[30px] h-[30px] rounded-[50%] ml-[-10px] " />
-                                                <div className="w-[30px] h-[30px] rounded-[50%] border-[1px] flex justify-center items-center bg-white ml-[-10px]">
-                                                    <p className="text-[0.7rem]">+99</p>
-                                                </div>
-                                                <p className="ml-[10px]">10+ posts a day</p>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                        <Button
-                                        children="Join"
-                                        className="w-[140px] h-[50px] bg-primary"
-                                        />
-                                </div>
-                                    <p className="w-[95%]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, tenetur optio accusantium reiciendis maiores aut, impedit tempora repellendus est quidem reprehenderit, odit similique quos. Architecto porro quasi, asperiores vitae rerum ullam voluptate ipsum ratione? .</p>
-
-                            </div>
-                                
-                         </div>
-
-
-                         
-
-                    <div className="mt-[2%] flex border-[1px] p-[1%] bg-ashLight w-[98%] h-[180px] m-[10px] border-[2px] rounded-[6px]">
-                                <div className="flex items-center gap-[5px]">
-                                    <img src={post1} alt="kelly" className="rounded-[50%] w-[100px] h-[100px] " />
+                                    <img src={Kelly} alt="kelly" className="rounded-[50%] w-[100px] h-[100px] " />
                                 </div>
 
                                 <div className=" w-[99%] flex flex-col gap-[20px] ml-[2%]">
                                     <div className="flex items-center gap-[400px]">
-                                        <div className='flex flex-col gap-[10px]'>
-                                            <h1  className="text-primary font-bold">Graphics designer Group</h1>
-                                            <div className=" flex items-center gap-[10px]"> 
+                                    <div className='flex flex-col gap-[10px]'>
+                                            <h1  className="text-primary font-bold max-sm:w-[500px]">Learn Tech</h1>
+                                            
+                                        <div className=" flex items-center gap-[10px]"> 
                                             <HiUserGroup className="w-[30px] h-[30px] text-primary"/>
-                                            <div className="flex">
+                                            <div className="flex ">
                                                 <img src={post1} alt="" className="w-[30px] h-[30px] rounded-[50%] " />
                                                 <img src={post2} alt="" className="w-[30px] h-[30px] rounded-[50%] ml-[-10px] " />
                                                 <img src={post3} alt="" className="w-[30px] h-[30px] rounded-[50%] ml-[-10px] " />
@@ -147,7 +111,47 @@ const Group = () => {
                                         className="w-[140px] h-[50px] bg-primary"
                                         />
                                 </div>
-                                    <p className="w-[95%]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, tenetur optio accusantium reiciendis maiores aut, impedit tempora repellendus est quidem reprehenderit, odit similique quos. Architecto porro quasi, asperiores vitae rerum ullam voluptate ipsum ratione? .</p>
+                                    <p className="w-[95%] max-sm:w-[70%] h-[50vh] border-[2px] max-sm:hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, tenetur optio accusantium reiciendis maiores aut, impedit tempora repellendus est quidem reprehenderit, odit similique quos. Architecto porro quasi, asperiores vitae rerum ullam voluptate ipsum ratione? .</p>
+
+                            </div>
+                                
+                         </div>
+
+                         
+
+                    
+                         <div className="mt-[2%] flex border-[1px] p-[1%] bg-ashLight w-[98%] h-[180px] m-[10px] border-[2px] rounded-[6px] max-sm:mt-[10%] max-sm:w-[95%] max-sm:h-[100px]">
+                                <div className="flex items-center gap-[5px]">
+                                    <img src={Kelly} alt="kelly" className="rounded-[50%] w-[100px] h-[100px] " />
+                                </div>
+
+                                <div className=" w-[99%] flex flex-col gap-[20px] ml-[2%]">
+                                    <div className="flex items-center gap-[400px]">
+                                    <div className='flex flex-col gap-[10px]'>
+                                            <h1  className="text-primary font-bold max-sm:w-[500px]">Hack The Box</h1>
+                                            
+                                        <div className=" flex items-center gap-[10px]"> 
+                                            <HiUserGroup className="w-[30px] h-[30px] text-primary"/>
+                                            <div className="flex ">
+                                                <img src={post1} alt="" className="w-[30px] h-[30px] rounded-[50%] " />
+                                                <img src={post2} alt="" className="w-[30px] h-[30px] rounded-[50%] ml-[-10px] " />
+                                                <img src={post3} alt="" className="w-[30px] h-[30px] rounded-[50%] ml-[-10px] " />
+                                                <img src={Kelly} alt="" className="w-[30px] h-[30px] rounded-[50%] ml-[-10px] " />
+                                                <div className="w-[30px] h-[30px] rounded-[50%] border-[1px] flex justify-center items-center bg-white ml-[-10px]">
+                                                    <p className="text-[0.7rem]">+99</p>
+                                                </div>
+                                                <p className="ml-[10px]">10+ posts a day</p>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                        <Button
+                                        children="Join"
+                                        className="w-[140px] h-[50px] bg-primary"
+                                        />
+                                </div>
+                                    <p className="w-[95%] max-sm:w-[70%] h-[50vh] border-[2px] max-sm:hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, tenetur optio accusantium reiciendis maiores aut, impedit tempora repellendus est quidem reprehenderit, odit similique quos. Architecto porro quasi, asperiores vitae rerum ullam voluptate ipsum ratione? .</p>
 
                             </div>
                                 

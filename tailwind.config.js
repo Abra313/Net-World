@@ -10,7 +10,8 @@ export default {
         primary: '#150AA1',
         ashDark: "#585858",
         ashLight: "#E4E4E4",
-        secondary: "#5858FA"
+        secondary: "#5858FA",
+        white: "#fff"
 
       },
 
