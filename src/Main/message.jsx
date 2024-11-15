@@ -48,19 +48,7 @@ const Message = () =>{
                         <img src={Igbo} alt=""  className='w-[70px] h-[50px] rounded-[50%]'/>
                         <img src={post5} alt="" className='w-[70px] h-[50px] rounded-[50%]' />
                        
-                        <img src={post1} alt=""  className='w-[70px] h-[50px] rounded-[50%]'/>
-                        <img src={post2} alt=""  className='w-[70px] h-[50px] rounded-[50%]'/>
-                        <img src={post3} alt="" className='w-[70px] h-[50px] rounded-[50%]' />
-                        <img src={post4} alt=""  className='w-[70px] h-[50px] rounded-[50%]'/>
-                        <img src={Pre} alt="" className='w-[70px] h-[50px] rounded-[50%]' />
-                        <img src={Igbo} alt=""  className='w-[70px] h-[50px] rounded-[50%]'/>
-                        <img src={post5} alt="" className='w-[70px] h-[50px] rounded-[50%]' />
-                        <img src={Kelly} alt="" className='w-[70px] h-[50px] rounded-[50%]' />
-                        <img src={Glory} alt="" className='w-[70px] h-[50px] rounded-[50%]' />
-                        <img src={Pual} alt=""  className='w-[70px] h-[50px] rounded-[50%]'/>
-                        <img src={Pre} alt="" className='w-[70px] h-[50px] rounded-[50%]' />
-                        <img src={Igbo} alt=""  className='w-[70px] h-[50px] rounded-[50%]'/>
-                        <img src={post5} alt="" className='w-[70px] h-[50px] rounded-[50%]' />
+                        
 
                         <img src={post4} alt=""  className='w-[70px] h-[50px] rounded-[50%]'/>
                         <img src={Pre} alt="" className='w-[70px] h-[50px] rounded-[50%]' />
@@ -70,12 +58,7 @@ const Message = () =>{
                         <img src={Glory} alt="" className='w-[70px] h-[50px] rounded-[50%]' />
                         <img src={Pual} alt=""  className='w-[70px] h-[50px] rounded-[50%]'/>
 
-                        <img src={post4} alt=""  className='w-[70px] h-[50px] rounded-[50%]'/>
-                        <img src={Kelly} alt="" className='w-[70px] h-[50px] rounded-[50%]' />
-                        <img src={Glory} alt="" className='w-[70px] h-[50px] rounded-[50%]' />
-                        <img src={Pual} alt=""  className='w-[70px] h-[50px] rounded-[50%]'/>
-                        <img src={Pre} alt="" className='w-[70px] h-[50px] rounded-[50%]' />
-                        <img src={Igbo} alt=""  className='w-[70px] h-[50px] rounded-[50%]'/>
+                
                     </div>
 
 
@@ -95,38 +78,6 @@ const Message = () =>{
                              <img src={post3} alt="" className='w-[50px] h-[50px] rounded-[50%]' />
                              <div>
                                 <h3 className=' font-bold text-secondary'>Tracy Vicky</h3>
-                                <p className="text-ashDark">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, laboriosam.</p>
-                             </div>
-                             
-
-                        </div>
-
-
-                        <div className='flex justify-start gap-[10px]'>
-                              <img src={post4} alt=""  className='w-[50px] h-[50px] rounded-[50%]'/>
-                             <div>
-                                <h3 className=' text-secondary font-bold'>Bukunmi</h3>
-                                <p className="text-ashDark">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, laboriosam.</p>
-                             </div>
-                             
-
-                        </div>
-
-
-                        <div className='flex justify-start gap-[10px]'>
-                             <img src={Kelly} alt="" className='w-[50px] h-[50px] rounded-[50%]' />
-                             <div>
-                                <h3 className='text-secondary font-bold'>Godwin Dickson</h3>
-                                <p className="text-ashDark">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, laboriosam.</p>
-                             </div>
-                             
-
-                        </div>
-
-                        <div className='flex justify-start gap-[10px]'>
-                             <img src={Glory} alt="" className='w-[50px] h-[50px] rounded-[50%]' />
-                             <div>
-                                <h3 className='text-secondary font-bold'>Ceeprintz Peace</h3>
                                 <p className="text-ashDark">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, laboriosam.</p>
                              </div>
                              

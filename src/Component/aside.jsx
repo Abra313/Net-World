@@ -24,7 +24,7 @@ const Aside = () => {
 
   return (
     <>
-      <div className="w-[17.7%] h-[50vh] border-r-[0] flex justify-center mt-[6%] fixed  max-sm:ml-[%] max-sm:mt-[37%] ">
+      <div className="w-[17.7%] h-[50vh] border-r-[0] flex justify-center mt-[8%] fixed  max-sm:ml-[%] max-sm:mt-[37%] ">
         <div className="flex justify-center flex-col items-start space-y-2 max-sm:gap-[10px] ">
           <img src={pp} alt="pp" className="w-[40px] h-[40px] rounded-[50%] max-sm:ml-[-5px]"/>
 

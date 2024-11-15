@@ -1,5 +1,5 @@
 import Rightaside from "../../Component/Rightaside";
-import Footer from "../../Component/Footer";
+// import Footer from "../../Component/Footer";
 import Header from "../../Component/header";
 import Aside from "../../Component/aside";
 import MainPage from "../../Main/main";
@@ -18,7 +18,7 @@ function UserPage() {
       </div>  
 
       
-      <Footer/>
+      {/* <Footer/> */}
       
   
     </div>

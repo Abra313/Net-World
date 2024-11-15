@@ -1,41 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import Button from "../Component/Button";
-// Sample Images (to be replaced dynamically)
-import post4 from '../asset/images/post4.jpg';
-import Glory from '../asset/images/glory.jpg';
 import Kelly from '../asset/images/kelly.jpg';
-import Recheal from '../asset/images/recheal.jpg';
-import Pual from '../asset/images/paul.jpg';
 import post1 from '../asset/images/post1.jpg';
 import post2 from '../asset/images/post2.jpg';
-import post3 from '../asset/images/post3.jpg';
+// You can add other imports here as needed
 
 const Notification = () => {
     const navigate = useNavigate();
     const [activeButton, setActiveButton] = useState('All');
-    const [notifications, setNotifications] = useState([]);
 
-    useEffect(() => {
-        // Simulate fetching notifications data from an API
-        const fetchNotifications = async () => {
-            // Fetch data from an API (replace with actual API)
-            // Example data for testing
-            const response = [
-                { img: Kelly, name: 'Kelly Johnson', text: 'Liked your post recently', time: '1 min ago' },
-                { img: post1, name: 'Tracy Vicky', text: 'Added a new post', time: '15 mins ago' },
-                { img: post2, name: 'Olaide John', text: 'Liked your post', time: '20 mins ago' },
-                { img: post3, name: 'Dorothy', text: 'Mentioned you in a post', time: '30 mins ago' },
-                { img: post4, name: 'Success', text: 'Liked your post', time: '40 mins ago' },
-                { img: Pual, name: 'Paul Chisom', text: 'Accepted your request', time: '59 mins ago' }
-            ];
-            setNotifications(response);  // Update state with the fetched data
-        };
-
-        fetchNotifications();  // Call the function to fetch notifications
-    }, []);  // Empty dependency array means this runs once when the component mounts
+    // Array of notification items
+    const notifications = [
+        { img: Kelly, name: 'Kelly Johnson', text: 'comment', time: '1 min ago' },
+        { img: post1, name: 'Tracy Vicky', text: 'comment', time: '15 mins ago' },
+        { img: post2, name: 'Olaide John', text: 'comment', time: '20 mins ago' },
+        // Additional notifications can be added here
+    ];
 
     const handleBackClick = () => {
         navigate(-1); // Navigate to the previous page
@@ -46,22 +29,18 @@ const Notification = () => {
     };
 
     const handleFollowers = () => {
-        setActiveButton('Follower');
         navigate('/user/follower');
     };
-    
-    const handleNotification = () => {
-        setActiveButton('All');
-        navigate('/user/notification');
+
+    const handleAll = () => {
+        navigate('/user/all');
     };
 
     const handleComment = () => {
-        setActiveButton('Comments');
         navigate('/user/comment');
     };
 
     const handleLikes = () => {
-        setActiveButton('Likes');
         navigate('/user/like');
     };
 
@@ -73,34 +52,31 @@ const Notification = () => {
                         className="text-primary font-bold text-2xl ml-2 cursor-pointer max-sm:hidden" 
                         onClick={handleBackClick} 
                     />
-                    <h2 className='text-primary font-bold text-2xl '>
+                    <h2 className='text-primary font-bold text-2xl'>
                         Notification
                     </h2>
                     <IoMdSettings 
-                        className="text-primary font-bold text-2xl " 
+                        className="text-primary font-bold text-2xl" 
                         onClick={handleNotiSetting} 
                     />
                 </div>
 
                 <div className="flex gap-4 mt-4 overflow-x-auto">
                     <Button 
-                        className={`rounded-full px-4 py-2 ${activeButton === 'All' ? 'bg-grey-400 text-white' : 'bg-primary text-black'}`}
-                        onClick={handleNotification}
+                        className={`rounded-full px-4 py-2 ${activeButton === 'All' ? 'bg-gray-400 text-white' : 'bg-primary text-black'}`}
+                        onClick={handleAll}
                         children="All"
                     />
-                    
                     <Button 
                         className={`rounded-full px-4 py-2 ${activeButton === 'Follower' ? 'bg-gray-400 text-white' : 'bg-primary text-black'}`}
                         onClick={handleFollowers}
                         children="Follower"
                     />
-                    
                     <Button 
                         className={`rounded-full px-4 py-2 ${activeButton === 'Likes' ? 'bg-gray-400 text-white' : 'bg-primary text-black'}`}
                         onClick={handleLikes}
                         children="Likes"
                     />
-                    
                     <Button 
                         className={`rounded-full px-4 py-2 ${activeButton === 'Comments' ? 'bg-gray-400 text-white' : 'bg-primary text-black'}`}
                         onClick={handleComment}
@@ -109,7 +85,7 @@ const Notification = () => {
                 </div>
                 <hr className="mt-4 max-sm:hidden" />
 
-                {/* Render dynamic notifications */}
+                {/* Mapping through the notifications array */}
                 {notifications.map((notification, index) => (
                     <div key={index} className="mt-4 flex justify-between items-center text-ashDark">
                         <div className="flex items-center gap-2">
@@ -122,6 +98,7 @@ const Notification = () => {
                         <p>{notification.time}</p>
                     </div>
                 ))}
+                
                 <hr className="mt-4 max-sm:hidden" />
             </div>
         </div>

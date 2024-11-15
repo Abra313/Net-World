@@ -9,6 +9,9 @@ import AddCard from "./AddCard";
 import Profile from "./Profile";
 import More from "./More";
 import NotiSetting from "./notification-setting";
+import Followers from "./followers";
+import Likes from "./Likes"
+import Comment from"./Comment"
 
 
 
@@ -26,6 +29,9 @@ const MainRoute = () => {
                 <Route path="/profile" element={<Profile/>}/>
                 <Route path="/more" element={<More/>}/>
                 <Route path="/noti" element={<NotiSetting/>}/>
+                <Route path="/follower" element={<Followers/>}/>
+                <Route path="/like" element={<Likes/>}/>
+                <Route path="/comment" element={<Comment/>}/>
                 
             </Routes>
             

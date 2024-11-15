@@ -42,14 +42,14 @@ const Group = () => {
                                     <img src={Kelly} alt="kelly" className="rounded-[50%] w-[100px] h-[100px] " />
                                 </div>
 
-                                <div className=" w-[99%] flex flex-col gap-[20px] ml-[2%]">
+                            <div className=" w-[99%] flex flex-col gap-[20px] ml-[2%]">
                                     <div className="flex items-center gap-[400px]">
                                     <div className='flex flex-col gap-[10px]'>
                                             <h1  className="text-primary font-bold max-sm:w-[500px]">Coocking Group</h1>
                                             
                                         <div className=" flex items-center gap-[10px]"> 
                                             <HiUserGroup className="w-[30px] h-[30px] text-primary"/>
-                                            <div className="flex ">
+                                           <div className="flex justify-center items-center">
                                                 <img src={post1} alt="" className="w-[30px] h-[30px] rounded-[50%] " />
                                                 <img src={post2} alt="" className="w-[30px] h-[30px] rounded-[50%] ml-[-10px] " />
                                                 <img src={post3} alt="" className="w-[30px] h-[30px] rounded-[50%] ml-[-10px] " />
@@ -65,10 +65,10 @@ const Group = () => {
                                     </div>
                                         <Button
                                         children="Join"
-                                        className="w-[140px] h-[50px] bg-primary"
+                                        className="w-[140px] h-[50px] bg-primary max-sm:ml[-5px]"
                                         />
                                 </div>
-                                    <p className="w-[95%] max-sm:w-[70%] h-[50vh] border-[2px] max-sm:hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, tenetur optio accusantium reiciendis maiores aut, impedit tempora repellendus est quidem reprehenderit, odit similique quos. Architecto porro quasi, asperiores vitae rerum ullam voluptate ipsum ratione? .</p>
+                                    <p className="w-[95%] mt-[-10px] max-sm:w-[70%] h-[50vh] border-[2px] max-sm:hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, tenetur optio accusantium reiciendis maiores aut, impedit tempora repellendus est quidem reprehenderit, odit similique quos. Architecto porro quasi, asperiores vitae rerum ullam voluptate ipsum ratione? .</p>
 
                             </div>
                                 
@@ -92,7 +92,7 @@ const Group = () => {
                                             
                                         <div className=" flex items-center gap-[10px]"> 
                                             <HiUserGroup className="w-[30px] h-[30px] text-primary"/>
-                                            <div className="flex ">
+                                            <div className="flex  justify-center items-center">
                                                 <img src={post1} alt="" className="w-[30px] h-[30px] rounded-[50%] " />
                                                 <img src={post2} alt="" className="w-[30px] h-[30px] rounded-[50%] ml-[-10px] " />
                                                 <img src={post3} alt="" className="w-[30px] h-[30px] rounded-[50%] ml-[-10px] " />
@@ -111,7 +111,7 @@ const Group = () => {
                                         className="w-[140px] h-[50px] bg-primary"
                                         />
                                 </div>
-                                    <p className="w-[95%] max-sm:w-[70%] h-[50vh] border-[2px] max-sm:hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, tenetur optio accusantium reiciendis maiores aut, impedit tempora repellendus est quidem reprehenderit, odit similique quos. Architecto porro quasi, asperiores vitae rerum ullam voluptate ipsum ratione? .</p>
+                                    <p className="w-[95%] mt-[-10px] max-sm:w-[70%] h-[50vh] border-[2px] max-sm:hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, tenetur optio accusantium reiciendis maiores aut, impedit tempora repellendus est quidem reprehenderit, odit similique quos. Architecto porro quasi, asperiores vitae rerum ullam voluptate ipsum ratione? .</p>
 
                             </div>
                                 
@@ -132,7 +132,7 @@ const Group = () => {
                                             
                                         <div className=" flex items-center gap-[10px]"> 
                                             <HiUserGroup className="w-[30px] h-[30px] text-primary"/>
-                                            <div className="flex ">
+                                            <div className="flex justify-center items-center">
                                                 <img src={post1} alt="" className="w-[30px] h-[30px] rounded-[50%] " />
                                                 <img src={post2} alt="" className="w-[30px] h-[30px] rounded-[50%] ml-[-10px] " />
                                                 <img src={post3} alt="" className="w-[30px] h-[30px] rounded-[50%] ml-[-10px] " />
@@ -151,7 +151,7 @@ const Group = () => {
                                         className="w-[140px] h-[50px] bg-primary"
                                         />
                                 </div>
-                                    <p className="w-[95%] max-sm:w-[70%] h-[50vh] border-[2px] max-sm:hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, tenetur optio accusantium reiciendis maiores aut, impedit tempora repellendus est quidem reprehenderit, odit similique quos. Architecto porro quasi, asperiores vitae rerum ullam voluptate ipsum ratione? .</p>
+                                    <p className="w-[95%] mt-[-10px] max-sm:w-[70%] h-[50vh] border-[2px] max-sm:hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, tenetur optio accusantium reiciendis maiores aut, impedit tempora repellendus est quidem reprehenderit, odit similique quos. Architecto porro quasi, asperiores vitae rerum ullam voluptate ipsum ratione? .</p>
 
                             </div>
                                 
