@@ -30,3 +30,50 @@
 
 
 
+<<<<<<< HEAD
+=======
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+  background-color: #fff;
+  color: #121627;
+}
+
+body.dark-mode {
+  background-color: #191f36;
+  color: #fff;
+}
+
+body.dark-mode  h3,
+body.dark-mode  h2,
+body.dark-mode  p,
+body.dark-mode h1,
+body.dark-mode h4 {
+  color: #fff;
+
+}
+body.dark-mode  textarea{
+  color: black;
+}
+
+
+
+body.light-mode  h3
+body.light-mode  textarea{
+  color: #5858FA;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> T-main
