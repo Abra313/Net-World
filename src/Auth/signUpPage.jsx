@@ -28,7 +28,7 @@ const SignUp = () => {
         // Validate password
         const passwordValid = validatePassword(password);
         if (!passwordValid) {
-            setPasswordError('Password must be at least 8 characters  long and include an uppercase letter, a lowercase letter, and a punctuation mark.');
+            setPasswordError('Password must be at least 8 characters long and include an uppercase letter, a lowercase letter, and a punctuation mark.');
             return;
         }
 
@@ -39,15 +39,33 @@ const SignUp = () => {
         setLoading(true);
 
         try {
-            // Simulate API call (replace with actual signup logic)
-            // Example: const response = await signupUser({ fullName, email, password });
-            
-            // For demo purposes, navigate to "/user" after success
-            setTimeout(() => {
-                navigate('/user');
-            }, 1000); // Simulate delay for 1 second
+            // Make the API request to your backend to register the user
+            const response = await fetch('http://localhost:5004/api/auth/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    userName: fullName,  // Send the fullName as userName in the body
+                    email: email,
+                    password: password,
+                    age: 25,  // You can hardcode age or add another input for the user to specify their age
+                }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                // If registration is successful, navigate to the user page
+                setTimeout(() => {
+                    navigate('/user');
+                }, 1000); // Simulate delay for 1 second
+            } else {
+                // If the response is not ok, show the error message from the API
+                setError(data.message || 'Signup failed. Please try again.');
+            }
         } catch (error) {
-            // Handle errors from API (e.g., duplicate email, weak password)
+            // Handle network or other errors
             setError(error.message || 'Signup failed. Please try again.');
         } finally {
             // Reset loading state
