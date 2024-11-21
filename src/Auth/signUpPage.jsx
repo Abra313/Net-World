@@ -40,7 +40,7 @@ const SignUp = () => {
 
         try {
             // Make the API request to your backend to register the user
-            const response = await fetch('http://localhost:5004/api/auth/register', {
+            const response = await fetch('http://localhost:5000/api/V1/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
