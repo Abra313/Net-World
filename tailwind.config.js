@@ -1,8 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
-     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}"
+    "./src/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
     extend: {
@@ -10,19 +9,16 @@ export default {
         primary: '#150AA1',
         ashDark: "#585858",
         ashLight: "#E4E4E4",
-        secondary: "#5858FA",
-        white: "#fff"
+        secondary: "#5858FA"
 
       },
-
-      screens: {
-        'max-sm': {'max': '639px'},
-        'max-md': {'max': '767px'},
-        'max-lg': {'max': '1023px'},
-        'max-xl': {'max': '1279px'},
-        'max-2xl': {'max': '1535px'},
-      },
+    height:{
+      full:"100%",
+      half :"50%",
+      qua:"25%"
+       }  
       
+    
     },
   },
   plugins: [],
