@@ -1,31 +1,44 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../Context/AuthContext'; // Import useAuth hook
 import netWorld from '../asset/images/net world logo.png';
 import { MdEmail } from 'react-icons/md';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import Button from '../Component/Button';
+import ModelMessage from '../Component/ModelMessage'; // Import ModelMessage component
 
 const Login = () => {
     const navigate = useNavigate();
+    const { login, loading } = useAuth(); // Access login method and loading state from AuthContext
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+    const [showPassword, setShowPassword] = useState(false);
+    const [showModelMessage, setShowModelMessage] = useState(false); // State to control ModelMessage visibility
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
 
-        // Simple form validation
         if (!email || !password) {
             setError('Please enter email and password.');
             return;
         }
 
-        // Simulate login logic (replace with actual login API call)
-        // For demo purposes, assume login succeeds after 1 second
-        setTimeout(() => {
-            navigate('/user'); // Redirect to '/user' after successful login
-        }, 1000);
+        try {
+            setError('');
+            await login(email, password); // Call login method from AuthContext
+
+            // Show ModelMessage on successful login
+            setShowModelMessage(true);
+
+            // Redirect after delay to allow the user to see the message
+            setTimeout(() => {
+                setShowModelMessage(false);
+                navigate('/user'); // Redirect to '/user' after 2 seconds
+            }, 2000); // 2 seconds delay before navigation
+        } catch (err) {
+            setError(err.message);
+        }
     };
 
     const handleLostClick = () => {
@@ -66,7 +79,7 @@ const Login = () => {
                         <div className="flex items-center bg-ashLight rounded-lg">
                             <RiLockPasswordFill className="w-6 h-6 ml-3" />
                             <input
-                                type={showPassword ? 'text' : 'password'} // Toggle input type between text and password
+                                type={showPassword ? 'text' : 'password'}
                                 required
                                 placeholder="Password"
                                 className="h-12 flex-1 bg-transparent border-none outline-none text-lg ml-2"
@@ -93,15 +106,24 @@ const Login = () => {
                     </div>
 
                     <div className="flex justify-center mt-6">
-                        <Button className="w-36 h-12 rounded-lg"
-                        type="submit"
-                        children="Login"
-                        onClick={handleLogin}
-                        />
-                        
+                        <Button
+                            className="w-36 h-12 rounded-lg"
+                            type="submit"
+                            disabled={loading} // Disable button while loading
+                        >
+                            {loading ? 'Loading...' : 'Login'}
+                        </Button>
                     </div>
                 </form>
             </div>
+
+            {/* Show ModelMessage if login is successful */}
+            {showModelMessage && (
+                <ModelMessage
+                    message="Login Successful!"
+                    onClose={() => setShowModelMessage(false)} // Close the model
+                />
+            )}
         </div>
     );
 };
