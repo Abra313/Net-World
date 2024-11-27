@@ -26,18 +26,18 @@ const Login = () => {
 
         try {
             setError('');
-            await login(email, password); // Call login method from AuthContext
+            // Call the login method from AuthContext
+            await login({ email, password });
 
-            // Show ModelMessage on successful login
+            // Show success message
             setShowModelMessage(true);
-
-            // Redirect after delay to allow the user to see the message
             setTimeout(() => {
                 setShowModelMessage(false);
                 navigate('/user'); // Redirect to '/user' after 2 seconds
             }, 2000); // 2 seconds delay before navigation
         } catch (err) {
-            setError(err.message);
+            // Display error message from AuthContext
+            setError(err.message || 'Login failed');
         }
     };
 
@@ -80,7 +80,6 @@ const Login = () => {
                             <RiLockPasswordFill className="w-6 h-6 ml-3" />
                             <input
                                 type={showPassword ? 'text' : 'password'}
-                                required
                                 placeholder="Password"
                                 className="h-12 flex-1 bg-transparent border-none outline-none text-lg ml-2"
                                 value={password}

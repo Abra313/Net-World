@@ -20,7 +20,7 @@ exports.register = async (req, res) => {
     // Create and save the user
     const newUser = new User({
       userName,
-      FullName:userName,
+      FullName,
       email,
       password: hashedPassword,
       age,
