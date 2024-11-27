@@ -18,7 +18,6 @@ const SignUp = () => {
   const [error, setError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [showModelMessage, setShowModelMessage] = useState(false); // State to control ModelMessage visibility
-  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -44,14 +43,14 @@ const SignUp = () => {
         password,
         age: 25, // Optional field
       });
-      
+
       // Show ModelMessage on successful registration
-      setShowModelMessage(true);
+      showModalMessage();
 
       // Redirect after delay to allow the user to see the message
       setTimeout(() => {
-        setShowModelMessage(false);
-        navigate('/login'); // Redirect to the login page after successful registration
+        hideModalMessage(); // Hide the modal after the delay
+        navigate('/user');
       }, 2000); // 2 seconds delay before navigation
     } catch (err) {
       setError(err.message || 'Signup failed.');
@@ -66,8 +65,14 @@ const SignUp = () => {
     return hasUpperCase && hasLowerCase && hasPunctuation && isLongEnough;
   };
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword); // Toggle the visibility of the password field
+  // Function to show the ModelMessage
+  const showModalMessage = () => {
+    setShowModelMessage(true);
+  };
+
+  // Function to hide the ModelMessage
+  const hideModalMessage = () => {
+    setShowModelMessage(false);
   };
 
   return (
@@ -124,20 +129,13 @@ const SignUp = () => {
             <div className="flex items-center bg-ashLight rounded-lg">
               <RiLockPasswordFill className="w-6 h-6 ml-3" />
               <input
-                type={showPassword ? 'text' : 'password'} // Toggle input type based on showPassword state
+                type="password"
                 required
                 placeholder="Password"
                 className="h-12 flex-1 bg-transparent border-none outline-none text-lg ml-2"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <button
-                type="button"
-                className="text-gray-500 focus:outline-none mr-[10px]"
-                onClick={togglePasswordVisibility}
-              >
-                {showPassword ? 'Hide' : 'Show'} {/* Button text changes based on the visibility */}
-              </button>
             </div>
 
             {passwordError && <p className="text-red-500 mt-2">{passwordError}</p>}
@@ -167,8 +165,8 @@ const SignUp = () => {
       {/* Show ModelMessage if registration is successful */}
       {showModelMessage && (
         <ModelMessage
-          message="Registration Successful! Redirecting to Login..."
-          onClose={() => setShowModelMessage(false)} // Close the model
+          message="Registration Successful!"
+          onClose={hideModalMessage} // Close the model using hide function
         />
       )}
     </div>

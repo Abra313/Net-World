@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 
 export const AuthContext = createContext();
 
@@ -8,6 +8,20 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  // Load user data from sessionStorage on component mount
+  useEffect(() => {
+    const storedUser = JSON.parse(sessionStorage.getItem('user')); // Get user data from sessionStorage
+    if (storedUser) {
+      setUser(storedUser); // Set user state if available
+    }
+  }, []);
+
+  // Function to save user to sessionStorage
+  const saveUserToSessionStorage = (userData) => {
+    sessionStorage.setItem('user', JSON.stringify(userData)); // Save user data to sessionStorage
+  };
+
+  // Sign up function
   const signup = async (userData) => {
     try {
       setLoading(true);
@@ -20,6 +34,7 @@ export const AuthProvider = ({ children }) => {
 
       if (response.ok) {
         setUser(data.user);
+        saveUserToSessionStorage(data.user); // Save user data in sessionStorage
       } else {
         throw new Error(data.message || 'Signup failed');
       }
@@ -31,6 +46,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Login function
   const login = async (credentials) => {
     try {
       setLoading(true);
@@ -43,6 +59,7 @@ export const AuthProvider = ({ children }) => {
 
       if (response.ok) {
         setUser(data.user);
+        saveUserToSessionStorage(data.user); // Save user data in sessionStorage
       } else {
         throw new Error(data.message || 'Login failed');
       }
@@ -54,8 +71,10 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // Logout function
   const logout = () => {
     setUser(null);
+    sessionStorage.removeItem('user'); // Clear user data from sessionStorage
   };
 
   return (
