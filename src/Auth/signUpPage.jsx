@@ -27,8 +27,13 @@ const SignUp = () => {
       return;
     }
 
+    if (!validateUsername(username)) {
+      setError('Username can only contain letters, numbers, and these symbols: .-_@!');
+      return;
+    }
+
     if (!validatePassword(password)) {
-      setPasswordError('Password must meet requirements.');
+      setPasswordError('Password must contain at least one uppercase, one lowercase, one special character, and be at least 8 characters long.');
       return;
     }
 
@@ -37,8 +42,8 @@ const SignUp = () => {
 
     try {
       await signup({
-        username,
-        userName: fullName,
+        userName: username, // Map to backend field name
+        FullName: fullName, // Map to backend field name
         email,
         password,
         age: 25, // Optional field
@@ -56,6 +61,8 @@ const SignUp = () => {
       setError(err.message || 'Signup failed.');
     }
   };
+
+  const validateUsername = (username) => /^[a-zA-Z0-9._@!-]+$/.test(username);
 
   const validatePassword = (password) => {
     const hasUpperCase = /[A-Z]/.test(password);

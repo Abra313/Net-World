@@ -29,6 +29,7 @@ export const AuthProvider = ({ children }) => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(userData),
+        credentials: 'include', // Include cookies in requests
       });
       const data = await response.json();
 
