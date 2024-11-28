@@ -4,7 +4,7 @@ const User = require('../models/usermodel');
 require('dotenv').config();
 
 exports.register = async (req, res) => {
-  const { userName,FullName, email, password, age, profilePicture } = req.body;
+  const { userName, FullName, email, password, age, profilePicture } = req.body;
 
   try {
     // Check if the email already exists
@@ -32,14 +32,23 @@ exports.register = async (req, res) => {
     // Generate JWT token
     const token = jwt.sign({ id: savedUser._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
 
+    // Set the token in an HTTP-only cookie
+    res.cookie('access_token', token, {
+      httpOnly: true, // Prevents access via JavaScript
+      secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
+      sameSite: 'strict', // Prevent CSRF
+      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    });
+
+    // Respond with user details (excluding the token)
     res.status(201).json({
       message: 'User registered successfully',
-      token,
       user: {
         id: savedUser._id,
         userName: savedUser.userName,
         email: savedUser.email,
         age: savedUser.age,
+        FullName:savedUser.FullName,
         profilePicture: savedUser.profilePicture,
       },
     });
@@ -47,6 +56,7 @@ exports.register = async (req, res) => {
     res.status(500).json({ message: 'Server error', error: err.message });
   }
 };
+
 
 
 exports.login = async (req, res) => {
@@ -72,6 +82,7 @@ exports.login = async (req, res) => {
       user: {
         id: user._id,
         userName: user.userName,
+        FullName:user.FullName,
         email: user.email,
         age: user.age,
         profilePicture: user.profilePicture,
