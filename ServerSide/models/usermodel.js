@@ -32,13 +32,13 @@ const userSchema = new mongoose.Schema({
   userName: {
     type: String,
     required: true,
-    match: /^[a-zA-Z0-9]+$/,
+    match: /^[a-zA-Z0-9.\-@_!]+$/, // Updated regex to allow ., -, @, _, and !
     minlength: 3,
   },
   FullName: {
     type: String,
     required: true,
-    match: /^[a-zA-Z0-9]+$/,
+    match: /^[a-zA-Z0-9.\-@_! ]+$/, // Allows letters, numbers, ., -, @, _, !, and spaces
     minlength: 3,
   },
   email: {

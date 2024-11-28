@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const compression = require('compression');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
+const cookieParser = require('cookie-parser'); // For parsing cookies
 const connectDB = require('./Config/dbconns');
 const authRoutes = require('./routes/userAuth');
 
@@ -25,9 +26,13 @@ if (process.env.NODE_ENV === 'development') {
 
 // Enable CORS
 app.use(cors({
-  origin: '*',
+  origin: 'http://localhost:5173',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true, // Allow cookies to be sent
 }));
+
+// Parse cookies
+app.use(cookieParser());
 
 // Compress responses
 app.use(compression());
