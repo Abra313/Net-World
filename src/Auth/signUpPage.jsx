@@ -18,6 +18,7 @@ const SignUp = () => {
   const [error, setError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [showModelMessage, setShowModelMessage] = useState(false); // State to control ModelMessage visibility
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -55,7 +56,7 @@ const SignUp = () => {
       // Redirect after delay to allow the user to see the message
       setTimeout(() => {
         hideModalMessage(); // Hide the modal after the delay
-        navigate('/user');
+        navigate('/login'); // Redirect to login page
       }, 2000); // 2 seconds delay before navigation
     } catch (err) {
       setError(err.message || 'Signup failed.');
@@ -136,13 +137,20 @@ const SignUp = () => {
             <div className="flex items-center bg-ashLight rounded-lg">
               <RiLockPasswordFill className="w-6 h-6 ml-3" />
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 required
                 placeholder="Password"
                 className="h-12 flex-1 bg-transparent border-none outline-none text-lg ml-2"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <button
+                type="button"
+                className="ml-2 text-gray-500"
+                onClick={() => setShowPassword((prev) => !prev)}
+              >
+                {showPassword ? 'Hide' : 'Show'}
+              </button>
             </div>
 
             {passwordError && <p className="text-red-500 mt-2">{passwordError}</p>}

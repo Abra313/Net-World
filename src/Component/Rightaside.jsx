@@ -1,12 +1,14 @@
+import React, { useState, useEffect } from "react";
 import { CiSearch } from "react-icons/ci";
-import { useState } from "react";
 import post1 from "../asset/images/post1.jpg";
 import post2 from "../asset/images/post2.jpg";
 import post3 from "../asset/images/post3.jpg";
 
 const Rightaside = () => {
-    const [query, setQuery] = useState("");
-    const [results, setResults] = useState([]);
+    const [query, setQuery] = useState(""); // Search query
+    const [results, setResults] = useState([]); // Search results
+    const [allResults, setAllResults] = useState([]); // Store all results for "See All" functionality
+    const [showAll, setShowAll] = useState(false); // Track if "See All" is clicked
     const [suggestions, setSuggestions] = useState([
         {
             id: 1,
@@ -28,32 +30,62 @@ const Rightaside = () => {
         },
     ]);
 
-    const handleSearch = async (e) => {
-        if (e.key === "Enter") {
-            const token = localStorage.getItem("authToken");  // Retrieve token from localStorage (or sessionStorage)
-            if (!token) {
-                console.error("No token found");
-                return;
-            }
-
+    // Fetch search results from the backend API
+    const searchUsers = async (query) => {
+        if (query.length > 2) { // Only search if the query length is greater than 2 characters
             try {
-                const response = await fetch(`http://localhost:5004/api/V1/auth/search?q=${query}&page=1&limit=10`, {
+                const response = await fetch(`http://localhost:5004/api/V1/users/search?q=${query}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer $ 746783tr8yrg826trgyg8jkbqeioidlmnasldkljvmkjdsncvmjo38988nmnmncxnmncyqeku747yewgfy8477tr2873t8rfgf8t4rtfehjbjiqehfhgiuwfgwugefwu2`,  // Include Bearer token for authorization
                     },
+                    credentials: 'include', // Ensure cookies are sent with the request
                 });
 
-                if (!response.ok) {
-                    throw new Error("Failed to fetch search results");
-                }
                 const data = await response.json();
-                setResults(data.users); // Assuming the API returns a `users` array
+                if (Array.isArray(data) && data.length > 0) {
+                    setAllResults(data); // Store all results for "See All"
+                    setResults(data.slice(0, 3)); // Display first 3 results
+                } else {
+                    setResults([]);
+                    setAllResults([]);
+                }
             } catch (error) {
-                console.error("Error fetching search results:", error);
+                console.error('Error fetching search results:', error);
+                setResults([]);
+                setAllResults([]);
             }
+        } else {
+            setResults([]);
+            setAllResults([]);
         }
+    };
+
+    // Trigger search on input change
+    useEffect(() => {
+        if (query) {
+            searchUsers(query);
+        } else {
+            setResults([]); // Clear results if the search query is empty
+            setAllResults([]);
+        }
+    }, [query]);
+
+    const handleSeeAll = () => {
+        setShowAll(true); // Show all results
+        setResults(allResults); // Display all results
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
+            // Trigger search when Enter key is pressed
+            searchUsers(query);
+        }
+    };
+
+    // Utility to get the first letter of the FullName if no profile picture
+    const getProfileInitial = (fullName) => {
+        return fullName ? fullName.charAt(0).toUpperCase() : "";
     };
 
     return (
@@ -66,8 +98,8 @@ const Rightaside = () => {
                     placeholder="Search"
                     className="outline-none border-0 w-full"
                     value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                    onKeyDown={handleSearch}
+                    onChange={(e) => setQuery(e.target.value)} // Set query on input change
+                    onKeyDown={handleKeyDown} // Trigger search on Enter key press
                 />
             </div>
 
@@ -78,19 +110,42 @@ const Rightaside = () => {
                         <h2 className="font-bold text-ashDark mt-[30px]">Results</h2>
                         <div className="flex flex-col gap-[20px] m-[10px]">
                             {results.map((user) => (
-                                <div key={user._id} className="border-[1px] w-[302px] h-[100px] rounded-[5px] flex items-center p-[10px]">
-                                    <img
-                                        src={user.profilePicture || "default-profile.png"}
-                                        alt={user.username}
-                                        className="w-[50px] h-[50px] rounded-full border-[2px]"
-                                    />
+                                <div
+                                    key={user._id}
+                                    className="border-[1px] w-[302px] h-[100px] rounded-[5px] flex items-center p-[10px]"
+                                >
+                                    {user.profilePicture ? (
+                                        <img
+                                            src={user.profilePicture}
+                                            alt={user.userName}
+                                            className="w-[50px] h-[50px] rounded-full border-[2px]"
+                                        />
+                                    ) : (
+                                        <div
+                                            className="w-[50px] h-[50px] rounded-full flex items-center justify-center bg-gray-300 text-white font-bold"
+                                        >
+                                            {getProfileInitial(user.FullName)}
+                                        </div>
+                                    )}
                                     <div className="ml-[10px]">
-                                        <h3 className="font-bold text-[14px]">{user.fullName || "No Name"}</h3>
+                                        <h3 className="font-bold text-[14px]">
+                                            {user.FullName || ""}
+                                        </h3>
                                         <p className="text-[12px]">@{user.userName}</p>
                                     </div>
                                 </div>
                             ))}
                         </div>
+
+                        {/* Show "See All" if there are more than 3 results */}
+                        {allResults.length > 3 && !showAll && (
+                            <button
+                                className="text-blue-500 mt-4"
+                                onClick={handleSeeAll}
+                            >
+                                See All
+                            </button>
+                        )}
                     </div>
                 ) : (
                     query && (
@@ -106,7 +161,10 @@ const Rightaside = () => {
                         <h2 className="font-bold text-ashDark mt-[30px]">Suggestions</h2>
                         <div className="flex flex-col gap-[20px] m-[10px]">
                             {suggestions.map((suggestion) => (
-                                <div key={suggestion.id} className="border-[1px] w-[302px] h-[100px] rounded-[5px] flex items-center p-[10px]">
+                                <div
+                                    key={suggestion.id}
+                                    className="border-[1px] w-[302px] h-[100px] rounded-[5px] flex items-center p-[10px]"
+                                >
                                     <img
                                         src={suggestion.profilePicture}
                                         alt={suggestion.username}

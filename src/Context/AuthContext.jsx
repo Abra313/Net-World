@@ -21,11 +21,17 @@ export const AuthProvider = ({ children }) => {
     sessionStorage.setItem('user', JSON.stringify(userData)); // Save user data to sessionStorage
   };
 
+  // Function to get the access token from cookies
+  const getAccessTokenFromCookie = () => {
+    const cookie = document.cookie.split('; ').find(row => row.startsWith('authToken='));
+    return cookie ? cookie.split('=')[1] : null;
+  };
+
   // Sign up function
   const signup = async (userData) => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:5004/api/V1/auth/register', {
+      const response = await fetch('/api/V1/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(userData),
@@ -47,14 +53,15 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Login function
+  // Login function with token handling
   const login = async (credentials) => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:5004/api/V1/auth/login', {
+      const response = await fetch('/api/V1/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(credentials),
+        credentials: 'include', // Include HTTP-only cookie with token
       });
       const data = await response.json();
 
@@ -76,10 +83,11 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setUser(null);
     sessionStorage.removeItem('user'); // Clear user data from sessionStorage
+    document.cookie = 'authToken=; Max-Age=0'; // Remove token from cookie
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, signup, login, logout }}>
+    <AuthContext.Provider value={{ user, loading, signup, login, logout, getAccessTokenFromCookie }}>
       {children}
     </AuthContext.Provider>
   );

@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/usermodel');
 require('dotenv').config();
 
+// Register user
 exports.register = async (req, res) => {
   const { userName, FullName, email, password, age, profilePicture } = req.body;
 
@@ -48,7 +49,7 @@ exports.register = async (req, res) => {
         userName: savedUser.userName,
         email: savedUser.email,
         age: savedUser.age,
-        FullName:savedUser.FullName,
+        FullName: savedUser.FullName,
         profilePicture: savedUser.profilePicture,
       },
     });
@@ -57,8 +58,7 @@ exports.register = async (req, res) => {
   }
 };
 
-
-
+// Login user
 exports.login = async (req, res) => {
   const { email, password } = req.body;
 
@@ -82,7 +82,7 @@ exports.login = async (req, res) => {
       user: {
         id: user._id,
         userName: user.userName,
-        FullName:user.FullName,
+        FullName: user.FullName,
         email: user.email,
         age: user.age,
         profilePicture: user.profilePicture,
@@ -90,5 +90,25 @@ exports.login = async (req, res) => {
     });
   } catch (err) {
     res.status(500).json({ message: 'Server error', error: err.message });
+  }
+};
+
+// Search for users by fullname or username
+exports.searchUsers = async (req, res) => {
+  const query = req.query.q || ''; // Default to an empty string if no query parameter is provided
+
+  try {
+    // Search users by fullname or username
+    const users = await User.find({
+      $or: [
+        { FullName: { $regex: query, $options: 'i' } },
+        { userName: { $regex: query, $options: 'i' } },
+      ],
+    }).limit(10); // Limit to 10 users for performance
+
+    // Respond with the users found
+    res.json(users);
+  } catch (err) {
+    res.status(500).json({ message: 'Error searching users', error: err.message });
   }
 };
