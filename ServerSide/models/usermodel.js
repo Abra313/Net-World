@@ -38,7 +38,7 @@ const userSchema = new mongoose.Schema({
   FullName: {
     type: String,
     required: true,
-    match: /^[a-zA-Z0-9.\-@_! ]+$/, // Allows letters, numbers, ., -, @, _, !, and spaces
+    match: /^[a-zA-Z0-9\s]+$/, // Allow spaces in full names
     minlength: 3,
   },
   email: {
@@ -65,6 +65,20 @@ const userSchema = new mongoose.Schema({
   lastLogin: { type: Date },
   lastLogout: { type: Date },
 });
+
+// Static method to search users by userName or FullName
+userSchema.statics.searchUsers = async function(query) {
+  try {
+    return await this.find({
+      $or: [
+        { userName: { $regex: query, $options: 'i' } }, // Case-insensitive search for userName
+        { FullName: { $regex: query, $options: 'i' } }, // Case-insensitive search for FullName
+      ],
+    }).limit(10); // Limit results to 10 users
+  } catch (err) {
+    throw new Error('Error searching users');
+  }
+};
 
 const User = mongoose.model('User', userSchema);
 

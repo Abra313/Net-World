@@ -5,9 +5,10 @@ const helmet = require('helmet');
 const compression = require('compression');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
-const cookieParser = require('cookie-parser'); // For parsing cookies
+const cookieParser = require('cookie-parser');
 const connectDB = require('./Config/dbconns');
 const authRoutes = require('./routes/userAuth');
+const userRoutes = require('./routes/userAuth');  // Import the userRoutes for searching users
 
 dotenv.config();
 
@@ -16,23 +17,25 @@ connectDB();
 
 const app = express();
 
-// Security headers
-app.use(helmet());
+// Enable CORS
+app.use(
+  cors({
+    origin: 'http://localhost:5173', // Allow only the frontend origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    credentials: true, // Allow cookies and authorization headers
+  })
+);
 
-// Logging middleware
+// Parse cookies
+app.use(cookieParser());
+
+// Log requests in development mode
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-// Enable CORS
-app.use(cors({
-  origin: 'http://localhost:5173',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true, // Allow cookies to be sent
-}));
-
-// Parse cookies
-app.use(cookieParser());
+// Secure HTTP headers
+app.use(helmet());
 
 // Compress responses
 app.use(compression());
@@ -40,15 +43,23 @@ app.use(compression());
 // Rate limiting
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // limit each IP to 100 requests per windowMs
+  max: 100, // Limit each IP to 100 requests per windowMs
 });
 app.use(limiter);
 
 // Middleware for parsing JSON
 app.use(express.json());
 
-// Routes
+// Auth routes
 app.use('/api/V1/auth', authRoutes);
+
+// User search route
+app.use('/api/V1/users', userRoutes);  // Use the userRoutes for search
+
+// Default 404 handler for undefined routes
+app.use((req, res, next) => {
+  res.status(404).json({ message: 'Route not found' });
+});
 
 // Default error handler
 app.use((err, req, res, next) => {
@@ -58,6 +69,8 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Server setup
+// Start the server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});

@@ -1,25 +1,22 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaRegImage, FaVideo, FaPoll, FaArrowLeft } from 'react-icons/fa';
-import { MdSettingsVoice, MdGroup, MdBookmarks } from 'react-icons/md';
-import { GiSandsOfTime } from 'react-icons/gi';
-import { BsBroadcast } from 'react-icons/bs';
+import { FaArrowLeft } from 'react-icons/fa';
 import { IoMdList } from 'react-icons/io';
-import { CgMoreO } from 'react-icons/cg';
 import { BiLike, BiDislike } from 'react-icons/bi';
 import { TfiCommentAlt } from 'react-icons/tfi';
+import { MdBookmarks } from 'react-icons/md';
 import Button from '../Component/Button';
-import post4 from '../asset/images/post4.jpg';
-import Glory from '../asset/images/glory.jpg';
-import Kelly from '../asset/images/kelly.jpg';
-import Recheal from '../asset/images/recheal.jpg';
-import Pual from '../asset/images/paul.jpg';
-import Igbo from '../asset/images/igbo.jpg';
-import Pre from '../asset/images/pre.jpg';
+import StoryPost from '../Component/StoryPost'; // Import the new StoryPost component
 import post1 from '../asset/images/post1.jpg';
 import post2 from '../asset/images/post2.jpg';
 import post3 from '../asset/images/post3.jpg';
+import post4 from '../asset/images/post4.jpg';
 import post5 from '../asset/images/post5.jpg';
+import Kelly from '../asset/images/kelly.jpg';
+import Recheal from '../asset/images/recheal.jpg';
+import Igbo from '../asset/images/igbo.jpg';
+import Pre from '../asset/images/pre.jpg';
+import Pual from '../asset/images/paul.jpg';
 
 const MainPage = () => {
     const navigate = useNavigate();
@@ -94,36 +91,26 @@ const MainPage = () => {
                 </div>
                 <div className="flex gap-[5px] w-[99%] m-[10px] overflow-y-auto max-sm:ml-[0]" >
                     <div className='bg-primary text-white w-[80px] h-[90px] flex justify-center text-center font-bold rounded-[5px]'>+ <br /> Add <br />Story</div>
-                    <img src={post1} alt="" className='w-[80px] h-[90px] rounded-[5px]' />
-                    <img src={post2} alt="" className='w-[80px] h-[90px] rounded-[5px]' />
-                    <img src={post3} alt="" className='w-[80px] h-[90px] rounded-[5px]' />
-                    <img src={post4} alt="" className='w-[80px] h-[90px] rounded-[5px]' />
-                    <img src={post5} alt="" className='w-[80px] h-[90px] rounded-[5px]' />
-                    <img src={Kelly} alt="" className='w-[80px] h-[90px] rounded-[5px]' />
-                    <img src={Recheal} alt="" className='w-[80px] h-[90px] rounded-[5px]' />
-                    <img src={Igbo} alt="" className='w-[80px] h-[90px] rounded-[5px]' />
-                    <img src={Pre} alt="" className='w-[80px] h-[90px] rounded-[5px]' />
-                    <img src={Pual} alt="" className='w-[80px] h-[90px] rounded-[5px]' />
-
+                    {/* Use StoryPost component and pass images as props */}
+                    <StoryPost image={post1} />
+                    <StoryPost image={post2} />
+                    <StoryPost image={post3} />
+                    <StoryPost image={post4} />
+                    <StoryPost image={post5} />
+                    <StoryPost image={Kelly} />
+                    <StoryPost image={Recheal} />
+                    <StoryPost image={Igbo} />
+                    <StoryPost image={Pre} />
+                    <StoryPost image={Pual} />
                 </div>
             </div>
             <div className="bg-ashLight border-[1px] m-[10px] h-[265px] rounded-[5px] max-sm:h-[150px]">
                 <div className="bg-white h-[170px] rounded-[5px] m-[15px] border-[2px] flex flex-col gap-[70px] pl-[20px] pt-[20px] max-sm:h-[50px] ">
-                    <input type="text" name="" id=""  placeholder='Compose new post'className='bg-transparent border-[0] outline-[0] max-sm:mt-[-10px]'/>
-                    {/* <p className="text-[1.3rem] text-ashDark max-sm:mt-[-10px]">Compose new post</p> */}
+                    <input type="text" name="" id="" placeholder='Compose new post' className='bg-transparent border-[0] outline-[0] max-sm:mt-[-10px]'/>
                     <div className="flex gap-[30px] max-sm:mt-[-60px] max-sm:gap-[20px] ml-[-15px]">
-                    
-                                <FaRegImage className="w-[30px] h-[30px] text-ashDark max-sm: w-[90px] h-[40px]" />
-                                <FaVideo className="w-[30px] h-[30px] text-ashDark max-sm: w-[90px] h-[40px] " />
-                                <MdSettingsVoice className="w-[30px] h-[30px] text-ashDark max-sm: w-[90px] h-[40px]" />
-                                <FaPoll className="w-[30px] h-[30px] text-ashDark max-sm: w-[90px] h-[40px]" />
-                                <GiSandsOfTime className="w-[30px] h-[30px] text-ashDark max-sm: w-[90px] h-[40px]" />
-                                <BsBroadcast className="w-[30px] h-[30px] text-ashDark max-sm: w-[90px] h-[40px]" />
-                                <MdGroup className="w-[30px] h-[30px] text-ashDark max-sm: w-[90px] h-[40px]" />
-                            
+                        {/* Your icons for adding media */}
                     </div>
                 </div>
-                
                 <div className="flex items-center gap-[30px] m-[20px] justify-end max-sm:mt-[35px] flex justify-between">
                     <h2 className="text-primary font-bold">Post Later</h2>
                     <Button
@@ -139,7 +126,7 @@ const MainPage = () => {
             </div>
             <hr className='max-sm:hidden' />
             <div>
-                <div className='m-[10px] flex justify-between' >
+                <div className='m-[10px] flex justify-between'>
                     <div className='flex gap-[9px] items-center'>
                         <img src={Kelly} alt="" className='w-[40px] h-[40px] rounded-[50%]' />
                         <div>
@@ -147,23 +134,11 @@ const MainPage = () => {
                             <p className='text-[10px] text-ashDark'>@kellywilliams</p>
                         </div>
                     </div>
-                    <div className=' flex items-center gap-[2px]'>
+                    <div className='flex items-center gap-[2px]'>
                         <p className='text-ashDark'>August 24</p>
-                        <CgMoreO className='text-ashDark'/>
-
                     </div>
                 </div>
-                    {/* post */}
-                <div className='m-[10px]'>
-                    {/* <div className='flex gap-[20px] w-[100%] max-sm:gap-[5px] '>
-                        <img src={Kelly} alt="" className='w-[55%] h-[50%]' />
-                        <div className='flex gap-[10px] flex-col'>
-                            <img src={Recheal} alt="" className='w-[90%] h-[35%]' />
-                            <img src={Pual} alt="" className='w-[90%] h-[36%] max-sm:h-[32%]' />
-                        </div>
-                    </div> */}
 
-                </div>
                 <div className="flex flex-col gap-[10px] border-[1px] rounded-[5px] p-[7px] mt-[25px] ml-[40px] mr-[30px] max-sm:border-[0]">
                     <div className="flex justify-between">
                         <div className="flex gap-[40px]">
@@ -193,11 +168,12 @@ const MainPage = () => {
                     />
                     <div className='flex justify-between'>
                         <button
-                        className="bg-primary text-white px-[10px] py-[5px] rounded"
-                        onClick={handleCommentSubmit}
-                        children="Submit"
-                    />
-                    <p className="text-ashDark mt-[10px]">Total Comments: {commentCount}</p>
+                            className="bg-primary text-white px-[10px] py-[5px] rounded"
+                            onClick={handleCommentSubmit}
+                        >
+                            Submit
+                        </button>
+                        <p className="text-ashDark mt-[10px]">Total Comments: {commentCount}</p>
                     </div>
                     <div className="mt-[10px]">
                         {comments.map((comment, index) => (
@@ -206,12 +182,12 @@ const MainPage = () => {
                                 <button
                                     className="text-red-500"
                                     onClick={() => handleCommentDelete(index)}
-                                    children="Delete"
-                                />
+                                >
+                                    Delete
+                                </button>
                             </div>
                         ))}
                     </div>
-                    
                 </div>
             </div>
         </div>
