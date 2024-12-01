@@ -9,6 +9,9 @@ const cookieParser = require('cookie-parser');
 const connectDB = require('./Config/dbconns');
 const authRoutes = require('./routes/userAuth');
 const userRoutes = require('./routes/userAuth');  // Import the userRoutes for searching users
+const friendRequestRouter = require('./routes/friendRequest');
+
+
 
 dotenv.config();
 
@@ -52,9 +55,11 @@ app.use(express.json());
 
 // Auth routes
 app.use('/api/V1/auth', authRoutes);
+app.use('/api/V1/friend-requests', friendRequestRouter);  // Use the friend request for friends
 
 // User search route
 app.use('/api/V1/users', userRoutes);  // Use the userRoutes for search
+
 
 // Default 404 handler for undefined routes
 app.use((req, res, next) => {

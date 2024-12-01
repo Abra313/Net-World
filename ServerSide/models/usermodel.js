@@ -61,6 +61,7 @@ const userSchema = new mongoose.Schema({
   messages: [messageSchema],
   notifications: [notificationSchema],
   friends: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  friendRequests: [{ type: mongoose.Schema.Types.ObjectId, ref: 'FriendRequest' }],
   posts: [postSchema],
   lastLogin: { type: Date },
   lastLogout: { type: Date },
