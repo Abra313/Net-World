@@ -1,10 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const { sendFriendRequest, acceptFriendRequest, rejectFriendRequest } = require('../controller/friendRequest'); // Make sure this import path is correct
+const friendController = require('../controller/friendRequest');
 
-// Define the routes
-router.post('/send', sendFriendRequest); // Send a friend request
-router.post('/accept', acceptFriendRequest); // Accept a friend request
-router.post('/reject', rejectFriendRequest); // Reject a friend request
+// Send a friend request
+router.post('/send', friendController.sendFriendRequest);
+// Accept a friend request
+router.post('/accept', friendController.acceptFriendRequest);
+// Reject a friend request
+router.post('/reject', friendController.rejectFriendRequest);
+// Get pending requests and friends list
+router.get('/:userId', friendController.getFriendRequestsAndFriends);
 
 module.exports = router;

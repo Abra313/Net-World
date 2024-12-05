@@ -1,26 +1,25 @@
-import{BrowserRouter,Routes,Route} from "react-router-dom"
-import Login from "./Auth/loginPage";
-import SignUp from "./Auth/signUpPage";
-import LostPassword from './Auth/LostPassword'
-import UserPage from "./pages/userPage/userPage";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from '../src/Context/AuthContext';
+import Login from './Auth/loginPage';
+import SignUp from './Auth/signUpPage';
+import LostPassword from './Auth/LostPassword';
+import UserPage from './pages/userPage/userPage';
+import FriendList from './pages/friendsPage/friends';
 
 const AppRoute = () => {
-    return ( 
-        <div>
-           <BrowserRouter>
-            <Routes>
-            <Route path='/' element={<SignUp/>}></Route>
-            <Route path='/login' element={<Login/>}></Route>
-            <Route path='/lost' element={<LostPassword/>}></Route>
-            
+  return (
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/lost" element={<LostPassword />} />
+          <Route path="/user/*" element={<UserPage />} />
+          <Route path="/user/friends" element={<FriendList />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
+  );
+};
 
-            <Route path='/user/*' element={<UserPage/>}></Route>
-
-
-            </Routes>
-           </BrowserRouter>
-        </div> 
-     );
-}
- 
 export default AppRoute;
