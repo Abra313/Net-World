@@ -6,9 +6,10 @@ const compression = require('compression');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const cookieParser = require('cookie-parser');
-const connectDB = require('./Config/dbconns'); // MongoDB connection
-const authRoutes = require('./routes/userAuth'); // Auth-related routes
-const userRoutes = require('./routes/userAuth'); // User-related routes
+const connectDB = require('./Config/dbconns');
+const authRoutes = require('./routes/userAuth');
+const userRoutes = require('./routes/userAuth');  // Import the userRoutes for searching users
+const friendRequestRouter = require('./routes/friendRequest');
 
 dotenv.config();
 
@@ -45,16 +46,15 @@ const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 100, // Limit each IP to 100 requests per 15 minutes
 });
-app.use(limiter);
+// app.use(limiter);
 
 // Middleware to parse incoming JSON requests
 app.use(express.json());
 
 // Authentication routes
 app.use('/api/V1/auth', authRoutes);
-
-// User routes (e.g., user search, profile)
-app.use('/api/V1/users', userRoutes);
+app.use('/api/V1/friend-requests', friendRequestRouter);  // Use the friend request routes
+app.use('/api/V1/users', userRoutes);  // Use the userRoutes for search
 
 // Default 404 handler for undefined routes
 app.use((req, res, next) => {
