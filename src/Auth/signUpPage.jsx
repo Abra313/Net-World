@@ -15,7 +15,6 @@ const SignUp = () => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [age, setage] = useState(null);
   const [error, setError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [showModelMessage, setShowModelMessage] = useState(false); // State to control ModelMessage visibility
@@ -24,7 +23,7 @@ const SignUp = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
 
-    if (!username || !fullName || !email || !password || !age) {
+    if (!username || !fullName || !email || !password) {
       setError('Please fill in all fields.');
       return;
     }
@@ -48,7 +47,7 @@ const SignUp = () => {
         FullName: fullName, // Map to backend field name
         email,
         password,
-        age
+        age: 25, // Optional field
       });
 
       // Show ModelMessage on successful registration
@@ -131,18 +130,6 @@ const SignUp = () => {
                 className="flex-1 bg-transparent border-none outline-none ml-2 text-lg"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-
-                   {/* Age Field */}
-                   <div className="flex items-center bg-gray-200 rounded-lg p-2">
-              <MdEmail className="w-6 h-6 ml-2" />
-              <input
-                type="number"
-                placeholder="Enter your Age"
-                className="flex-1 bg-transparent border-none outline-none ml-2 text-lg"
-                value={age}
-                onChange={(e) => setage(e.target.value)}
               />
             </div>
 
