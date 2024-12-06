@@ -91,11 +91,12 @@ const Aside = () => {
         </div>
 
         <div className="flex justify-center items-center space-x-3">
-          <Link to="/user/list" className="flex justify-center items-center gap-[10px]">
-            <IoListSharp className={`w-[25px] h-[25px] ${isDarkMode ? 'text-white' : 'text-primary'}`} />
-            <p className="max-sm:hidden text-primary">Lists</p>
-          </Link>
-        </div>
+  <Link to="/user/friends" className="flex justify-center items-center gap-[10px]">
+    <IoListSharp className={`w-[25px] h-[25px] ${isDarkMode ? 'text-white' : 'text-primary'}`} />
+    <p className="max-sm:hidden text-primary">Friends</p>
+  </Link>
+</div>
+
 
         <div className="flex justify-center items-center space-x-3">
           <Link to="/user/group" className="flex justify-center items-center gap-[10px]">

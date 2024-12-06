@@ -9,7 +9,7 @@ router.post('/register', register);
 router.post('/login', login);
 
 // Protected route for searching users (can remove authentication if public)
-router.get('/search', authenticateToken, searchUsers); 
+router.get('/search',  searchUsers); 
 
 // Protected route (example)
 router.get('/protected', authenticateToken, (req, res) => {
