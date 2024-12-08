@@ -42,11 +42,11 @@ app.use(helmet());
 app.use(compression());
 
 // Rate limiting
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per windowMs
-});
-// app.use(limiter);
+// const limiter = rateLimit({
+//   windowMs: 15 * 60 * 1000, // 15 minutes
+//   max: 100, // Limit each IP to 100 requests per windowMs
+// });
+app.use(limiter);
 
 // Middleware for parsing JSON
 app.use(express.json());
