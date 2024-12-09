@@ -10,7 +10,7 @@ const { uploadToDropbox } = require('../utils/dropbox');
 exports.postStory = async (req, res) => {
   try {
     const { userId, content } = req.body;
-    const media = req.file;
+    const media = req.file;  // File received in the request
 
     if (!userId || !content) {
       return res.status(400).json({ error: 'UserId and content are required.' });
@@ -22,6 +22,7 @@ exports.postStory = async (req, res) => {
     if (media) {
       // Generate the file path for Dropbox
       const filePath = `/stories/${Date.now()}_${media.originalname}`;
+
       // Upload media to Dropbox and get the media URL
       mediaUrl = await uploadToDropbox(filePath, media.buffer);
       mediaType = media.mimetype.includes('video') ? 'video' : 'image';

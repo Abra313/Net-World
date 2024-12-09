@@ -1,9 +1,10 @@
 const { Dropbox } = require('dropbox');
 const fetch = require('node-fetch');
 
+// Initialize Dropbox client using the access token
 const dbx = new Dropbox({
   fetch: fetch,
-  accessToken: process.env.ACCESS_TOKEN,
+  accessToken: process.env.DROPBOX_ACCESS_TOKEN, // Correctly pass the access token here
 });
 
 /**
@@ -14,10 +15,18 @@ const dbx = new Dropbox({
  */
 async function uploadToDropbox(path, contents) {
   try {
-    const uploadResponse = await dbx.filesUpload({ path, contents });
+    // Upload the file to Dropbox
+    const uploadResponse = await dbx.filesUpload({
+      path,
+      contents,
+    });
+
+    // Create a shared link to the uploaded file
     const sharedLinkResponse = await dbx.sharingCreateSharedLinkWithSettings({
       path: uploadResponse.result.path_display,
     });
+
+    // Return the URL of the uploaded file, replacing the download link with the raw file link
     return sharedLinkResponse.result.url.replace('?dl=0', '?raw=1');
   } catch (error) {
     console.error('Error uploading to Dropbox:', error);
