@@ -10,6 +10,7 @@ const connectDB = require('./Config/dbconns');
 const authRoutes = require('./routes/userAuth');
 const userRoutes = require('./routes/userAuth');  // Import the userRoutes for searching users
 const friendRequestRouter = require('./routes/friendRequest');
+const storyRoutes = require('./routes/storyRoutes');  // Add the story routes
 
 dotenv.config();
 
@@ -55,6 +56,9 @@ app.use(express.json());
 app.use('/api/V1/auth', authRoutes);
 app.use('/api/V1/friend-requests', friendRequestRouter);  // Use the friend request routes
 app.use('/api/V1/users', userRoutes);  // Use the userRoutes for search
+
+// Story routes
+app.use('/api/V1/stories', storyRoutes); // Add story routes
 
 // Default 404 handler for undefined routes
 app.use((req, res, next) => {
