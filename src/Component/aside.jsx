@@ -16,6 +16,7 @@ const Aside = () => {
   const { user } = useAuth();  // Access user from AuthContext
 
   const [isDarkMode, setIsDarkMode] = useState(false); // Track theme state
+  const [isActive, setIsActive] = useState(true); // Track user activity state (simulated here)
 
   useEffect(() => {
     // Logic to check if dark mode is enabled, assuming ThemeSwitcher updates state/context
@@ -51,11 +52,15 @@ const Aside = () => {
       <div className={`flex justify-center flex-col items-start space-y-2 max-sm:gap-[10px] ${isDarkMode ? 'bg-transparent' : 'bg-white'}`}>
         {/* Profile Section */}
         <div className="flex justify-center items-center space-x-3 mt-5">
-          <div className="w-[50px] h-[50px] bg-gray-500 rounded-full flex justify-center items-center text-primary">
+          <div className="relative w-[50px] h-[50px] bg-gray-500 rounded-full flex justify-center items-center text-primary">
             {profileImage ? (
               <img src={profileImage} alt="User" className="w-full h-full object-cover rounded-full" />
             ) : (
               <span className="text-xl font-bold">{userInitials}</span>
+            )}
+            {/* Active Indicator */}
+            {isActive && (
+              <div className="absolute bottom-0 right-0 w-[12px] h-[12px] bg-green-500 border-2 border-white rounded-full"></div>
             )}
           </div>
           <p className="text-primary max-sm:hidden">{user?.FullName || 'User Name'}</p>

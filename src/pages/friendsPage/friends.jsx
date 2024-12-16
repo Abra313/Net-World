@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Box, Tabs, Tab, Typography } from "@mui/material";
+import { Box, Tabs, Tab, Typography } from '@mui/material';
+
 import FriendsList from "../../Component/friendsList";
 import FriendRequests from "../../Component/friendRequest";
 import SearchUsers from "../../Component/searchUser";

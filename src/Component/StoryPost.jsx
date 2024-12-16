@@ -9,3 +9,5 @@ const StoryPost = ({ image }) => {
 };
 
 export default StoryPost;
+
+  
